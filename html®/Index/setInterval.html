@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="css/font-awesome.css">
+	<style type="text/css">
+body{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+}
+		.caret{
+			width: 400px;
+			height: 4px;
+			background: rgba(0,0,0,.1);
+			margin: 20px auto;
+			border-radius: 20px;
+			/*transition:t .5s;*/
+			transform: translateY(-400px);
+		}
+		input{
+			width: 300px;
+			height: 30px;
+			outline: none;
+			/*-webkit-clip-path: ellipse(94% 31%) !important;*/
+			padding: 8px;
+			border: none;
+			font-family: corbel;
+			transition: 500ms;
+			color: black;
+			border: 1px solid rgba(0,0,0,.1);
+			border-left: none;
+			border-right: none;
+			font-size: 30px;
+			background: rgba(255,255,255,.1);
+			box-shadow: 0px 0px 40px 3px rgba(0,0,0,.3);
+			-webkit-appearance :none;
+		}
+		input:focus{
+			color: #5F9EA0;
+		}
+		::selection {
+			background: #5F9EA0;
+			color: white;
+		}
+
+		i{
+			position: absolute;
+			width: 2px;
+			background: rgba(0,0,0,.5);
+			transition:transform 500ms;
+			border-top-left-radius: 10px;
+			border-top-right-radius: 10px; 
+					}
+		b{
+			position: absolute;
+			width: 2px;
+			background: rgba(0,0,0,.5);
+			transition:transform 500ms;
+		border-bottom-left-radius: 10px;
+			border-bottom-right-radius: 10px; 
+		}
+		div{
+			margin: 25% 45%;
+		}
+		c{
+			position: absolute;
+			background: rgba(0,0,0,.5);
+			height: 2px;
+			transition: 500ms;
+			border-radius: 10px;
+		}
+		.animate{
+			animation:  animate 3s linear infinite;
+		}
+		@keyframes animate{
+			from{
+				background: linear-gradient(#5F9EA0,#4F9EA0)
+			}
+			to{
+				background: linear-gradient(#4F9EA0,#5F9EA0)
+			}
+		}
+		.fa-lock{
+			position: absolute;
+			color: #5F9EA0;
+			z-index: 1465464;	
+		}
+		label span{
+			color: #A9A9A9;
+			font-family: verdana;
+			font-size: 20px;
+			position: absolute;
+			display: inline-block;
+			user-select: none;
+			-webkit-user-select: none;
+		}
+		.typed-cursor{display: none;}
+	</style>
+</head>
+<body>
+	<input type="password" placeholder="" id="i"><label for="i"><span>enter your password</span></label><i></i><b></b><em class="fa fa-lock fa-2x"></em>
+	
+				
+
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="../source/node_modules/animejs/lib/anime.js"></script>
+<script type="text/javascript" src="typed.js-master/typed.js-master/lib/typed.js"></script>
+
+	<script type="text/javascript">
+	$(function() {
+		$('i').css({
+			top	: $('input').position().top+'px',
+			left: $('input').position().left+'px',
+			height: $('input').outerHeight()+'px'
+		})
+		$('b').css({
+			top	: $('input').position().top+'px',
+			left: $('input').position().left+$('input').innerWidth()+'px',
+			height: $('input').outerHeight()+'px'
+		})
+		$('.fa-lock').css({
+			left: $('input').position().left+$('input').innerWidth()-30+'px',
+			top	: $('input').position().top+8+'px',
+
+		})
+		$('label span').css({
+			left: $('input').position().left+15+'px',
+			top: $('input').position().top+10+'px'
+		})
+			$('input').on({
+			// when input focused this function works
+			focus: function() {
+				anime({
+					targets: 'label span',
+					translateY: -40,
+					scale: .7,
+					translateX: -65
+				})	
+				$('label span').css({
+					color: '#5F9EA0'
+				})			
+				$('i').css({
+					transformOrign  : 'bottom',
+					// if you want set 90 deg it same as -450 deg but faster is 90deg 
+					transform : `rotate(-450deg) translate(${$('input').width()/2-39}px,${$('input').width()/2+8}px)`,
+					height: $('input').outerWidth()+'px',
+					background : '#5F9EA0'
+				});
+				
+				$('b').css({
+					transformOrign  : 'top',
+					transform : `rotate(270deg) translate(${$('input').width()/2+8}px,-${$('input').width()/2+8}px)`,
+					height: $('input').outerWidth()+'px',
+					background: `#5F9EA0`,
+					width : 2+'px'
+				});
+				$('input').css({
+					borderTop: 'none',
+					borderBottom: 'none'
+				})
+			},
+			// when input blured this function works 
+			blur : function() {
+				if ($('input').val()=="") {
+					anime({
+					targets: 'label span',
+					translateY: 0,
+					translateX: 0,
+					scale:1,
+				})
+					
+				}
+					$('label span')
+					.css({
+						color: '#A9A9A9'
+					})
+				$('i').css({
+					transform : `rotate(0) translate(0)`,
+					height : '48px',
+					background: 'rgba(0,0,0,.5)'
+				});
+				$('b').css({
+					transform : `rotate(0) translate(0)`,
+					height : '48px',
+					background: `rgba(0,0,0,.5)`
+				});
+				// $('c').css({
+				// 	background: 'rgba(0,0,0,.5)'
+				// })
+				$('input').css({
+					borderTop: '1px solid rgba(0,0,0,0.1)',
+					borderBottom: '1px solid rgba(0,0,0,0.1)'
+				})
+			}
+		})
+		// if window resizes our <i> and <b> ticks gets their first position  
+		$(window).resize(function() {
+			$('i').css({
+					top	: $('input').position().top+'px',
+			left: $('input').position().left+'px'
+			})
+			$('b').css({
+				top	: $('input').position().top+'px',
+			left: $('input').position().left+$('input').innerWidth()+'px'
+			})
+			$('.fa-lock').css({
+			left: $('input').position().left+$('input').innerWidth()-30+'px',
+			top	: $('input').position().top+8+'px',
+
+		})
+			$('label span').css({
+			left: $('input').position().left+15+'px',
+			top: $('input').position().top+10+'px'
+		})
+		// 	$('c').css({
+		// 	top: $('input').position().top+'px',
+		// 	left : $('input').position().left+'px',
+		// })
+		})
+	// 	let typed = new Typed('span',{
+	// 	typeSpeed: 20,
+	// 	backSpeed: 20,
+	// 	startDelay: 300,
+	// 	strings: ['Enter your password','your password' , 'must be less than 18'],
+	// 	caret: '	'
+	// })
+
+	})
+
+</script>
+<script type="text/javascript">
+	let banCharacters = [
+		'№',
+		'!',
+		'@',
+		'#',
+		'$',
+		'%',
+		'^',
+		'&',
+		'*',
+		'(',
+		')',
+		'-',
+		'+',
+		'=',
+		'|',
+		'{',
+		'}',
+		'<',
+		'>',
+		'/',
+		'?',
+		'.',
+		',',
+		`"`,
+		`'`,
+		`~`,
+		'`'
+	]
+	document.querySelector('input').oninput = (function() {
+		for(let i = 0; i <= banCharacters.length; i++ ) {
+			this.value = this.value.replace(`${banCharacters[i]}`,'')
+		}
+		if (this.value.length > 18) {
+			this .value = this.value.slice(0,18)
+		} 
+		})
+	document.querySelector('input').onclick = (function() {
+		if (this.type='password') {
+		this.type = 'text';
+		setTimeout(function() {document.querySelector('input').type = 'password'}, 3500);
+	}
+	})
+</script>
+</body>
+</html>

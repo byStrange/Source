@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Js calculator</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+		body{
+			/*background: rgba(15,15,15,1);*/
+			background: black;
+			overflow: hidden;
+		}
+		#container{
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			width: 100%;
+			height: 100vh;
+		}
+		#container h1.solution {
+			font-family: Arial;
+			color: rgba(255,255,255,.01);
+			position: absolute;
+		}
+		#container h1.ans {
+			font-family: verdana;, "Helvetica Neue", Helvetica, sans-serif;
+			-webkit-text-stroke : 1px white;
+			font-size: 5em;
+		}
+
+	</style>
+</head>
+<body>
+	<section id="container">
+		<h1 class="solution"></h1>
+		<h1 class="ans"></h1>
+	</section>
+	<input type="text" style="opacity:0">
+	<script src="../../source/node_modules/animejs/lib/anime.js"></script>
+	<script src="../../FORlESSONS/JavaScript/strange.js"></script>
+	<script>
+		
+		validChars = [
+				'+',
+				'-',
+				'*',
+				'',
+				'(',
+				')'
+		]
+		window.onkeyup = function (e) {
+			try{
+				if(e.key.length > 1  || e.key == 'r') console.error('Only  numbers you must enter')
+				else {
+					$('h1',0).innerText += e.key
+					data = eval($('h1',0).innerText)
+					$('.ans',0).innerText = data
+					console.log($('h1', 0).innerText)
+				}
+			}
+			catch(err) {
+				console.log('Enter number after operands or only enter string')
+			}	
+			if(e.key == 'Backspace') {
+				$('h1',0).innerText = $('h1',0).innerText.slice(0,$('h1',0).innerText.length - 1)
+			}
+			if(e.key == '+' || e.key == '-' || e.key == '*' || e.key == '/') {
+				anime({
+					targets: '.ans',
+					translateY: [function(){return anime.random(-100,100)},0],
+					translateX: [function(){return anime.random(-100,100)},0],
+					opacity: [0,1]
+				})
+			} 
+		}
+// 		setInterval(checkStr,300 )
+// 		function checkStr(str = $('h1',0).innerText) {
+// 			let arr = []
+// 			for(i of  str) {
+// 				arr.push(i)
+// 			}
+// 			for(l = 0; l < arr.length; l++) {
+// 				if(isNaN(arr[l])) {
+//     			index = arr.indexOf(arr[l])
+//     			b = arr.splice(index, index+1)
+// 			}
+// 		}
+// 		strs = arr.toString()
+// 		$('h1',0).innerText = strs
+// }
+function cls() {
+	console.clear()
+}
+	</script>
+</body>
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<isindex prompt="search">asdasd</isindex>
+</head>
+<body>
+asdsd	
+<comment><div class="ie">Этот текст будет не виден в Internet Explorer</div></comment>
+   <div>А этот текст будет виден во всех браузерах</div>
+</body>
+</html>
+<style>
+   input:invalid {
+    background: #fdd; /* Красный цвет фона */
+   }
+   input:valid {
+    background: #dfd; /* Зеленый цвет фона */
+   }
+  </style>
+ </head>
+ <body>
+  <form>
+   <p>Адрес сайта</p>
+   <p><input type="url" required></p>
+   <p>Адрес электронной почты</p>
+   <p><input type="email" required></p>
+   <p><input type="submit" value="Отправить" /></p>
+  </form>
+ </body>
+  <style>
+   #comment p {
+    margin: 0 0 5px; /* Отступ снизу */
+   }
+   #comment label {
+    width: 110px; /* Ширина текста */
+    float: left; /* Выстраиваем по горизонтали */
+    text-align: right; /* Текст по правому краю */
+    padding-right: 10px; /* Поле справа */
+   }
+   #comment input[type="text"], #comment textarea {
+    width: 320px; /* Ширина текстовых полей */
+   }
+   input:required {
+    border: 1px solid red; /* Красная рамка для обязательных полей */
+   }
+  </style>
+ </head>
+ <body>
+  <form id="comment">
+   <p><label for="user">Имя</label>
+      <input id="user" type="text" required></p>
+   <p><label for="email">E-mail</label><input id="email" type="text"></p>
+   <p><label for="text">Комментарий</label>
+      <textarea cols="40" rows="10" id="text"></textarea></p>
+   <p><label>&nbsp;</label><input type="submit" id="send" value="Отправить"></p>
+  </form>
+ </body>
+
+<html>
+ <head>
+  <meta charset="utf-8">
+  <title>target</title>
+  <style>
+   h2:target {
+    background: red; /* Цвет фона */
+    padding: 3px; 
+   }
+  </style>
+ </head>
+ <body>
+ 	<a href="#h1">h</a>
+  <h2 id="h1">История 1</h2>
+  <p>История о том, как необходимо было сделать могилу, 
+  ее начали копать, а потом закапывать, и что из этого получилось.</p>
+  <h2 id="h2">История 2</h2>
+  <p>История о том, как возле столовой появились загадочные розовые
+  следы с шестью пальцами, и почему это случилось.</p>
+ </body>
+</html>
+<html>
+ <head>
+  <meta charset="utf-8">
+  <title>:optional</title>
+  <style>
+   input:optional {
+    opacity: 0.5; /* Полупрозрачность */
+   }
+  </style>
+ </head>
+ <body>
+  <form>
+   <p>Пожалуйста, укажите ваше имя и возраст.</p>
+   <p>Имя: <input name="name"></p>
+   <p>Возраст: <input type="number" min="18" required name="old"></p>
+   <p><input type="submit" value="Отправить"></p>
+  </form>
+ </body>
+</html>
+ <head>
+  <meta charset="utf-8">
+  <title>not</title>
+  <style>
+   input:not([class="submit"]) {
+    border: 1px solid red;
+    padding: 3px;
+   }
+  </style>
+ </head>
+ <body>
+  <form>
+   <p>Ваше имя: <input name="user"></p>
+   <p>Прилагаемый файл: <input type="file" name="file"></p>
+   <p><input type="submit" value="Отправить" class="submit"></p>
+  </form>
+ </body>
+</html>
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8">
+  <title>attr()</title>
+  <style>
+   .site::after {
+    content: ' (' attr(href) ') '; /* Выводим адрес ссылки в скобках */
+    font-size: 0.8em; /* Уменьшаем текст*/
+    background: yellow; /* Жёлтый фон */
+   }
+  </style>
+ </head>
+ <body>
+   <p><a href="http://htmlbook.ru" class="site">Полезный сайт</a></p>
+ </body>
+</html>
+<!DOCTYPE html>
+ <head>
+  <meta charset="utf-8">
+  <title>indeterminate</title>
+  <style>
+   :indeterminate, :indeterminate + span { background: limegreen; }
+   input, span { background: red; }
+  </style>
+ </head>
+ <body>
+  <form>
+   <p><input type="checkbox" inputmode="r"> <span>Этот текст станет зеленым, если чекбокс 
+    находится в неопределенном состоянии.</span></p>
+  </form> 
+  <script>
+   document.getElementsByTagName("input")[0].indeterminate = true;
+  </script>
+ </body>
+</html>

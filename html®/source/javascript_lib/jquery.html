@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <style>
+        .box{
+            width: 240px;
+            height: 300px;
+            border: 1px solid red;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            transition: 500ms;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <script>
+        $(function() {
+            $('.box').on({
+                // taphold : function() {alert('taphold')},
+                swipeleft: function() {$(this).css({left: '-=15px'})},
+                swiperight: function() {$(this).css({left: '+=15px'})},
+                
+            })
+        })
+    </script>
+</body>
+</html>

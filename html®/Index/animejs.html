@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Anime js</title>
+</head>
+<style type="text/css">
+	body{
+		background: #fff	;
+		overflow: hidden;
+		height: 100vh;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	 span.block{
+		display: inline-block;
+		width: 50px;	
+		height: 50px;
+		box-shadow: 10px 10px 30px rgba(0,0,0,.25);
+		background-color: #fff;
+		}
+	h1{
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%,-100%);
+		-webkit-user-select: none;
+		color: #151515;
+		/*text-shadow: 2px -1px 0px blue, 1px 5px 0 black, -1px -1px 0 red, -20px 22px 5px black;*/
+		/*text-shadow: -8px 0 0 gold, 1px -2px 0 black ,-15px 0px 0 black;*/
+		/*text-shadow: 0 0 15px black;*/
+		/*text-shadow: 0px 100px blue,0px -100px red, 300px 0 0 black , -300px 0 0 black,-300px 100px 0 green ,300px 100px 0 cyan,-300px -100px 0 gray,300px -100px 0 tomato;*/
+		font-family:Verdana;
+		font-size: 7em;
+		z-index: 46566444;
+
+	}
+	button{
+			position: absolute;
+				top: 50%;
+					left: 50%;
+						transform: translate(-50%,-100%);
+							z-index: 1540410;
+								border: none;
+									background: blue;
+										padding: 15px;
+											border-radius: 10px;	
+												color: #fff;
+
+
+	}
+	h1::after{
+		content: "Click";
+		position: absolute;
+		top: 0;
+		z-index: -5454;
+		left: 0;
+		text-shadow: 0 0 20px black;
+	}
+	span.block:nth-child(3n+2) {
+		background-color: #444
+	}
+	span.block:nth-child(3n+3) {
+		background-color: #ff9213
+	}
+</style>
+<body>
+			<section>
+				
+			</section>
+	<!-- <h1 onclick="st()">Click</h1> -->
+	<button onclick="st()">Generate</button>
+	<script type="text/javascript" src="../source/node_modules/animejs/lib/anime.js"></script>
+	<script type="text/javascript">
+		for (var i = 0; i < 300	 ; i++) {
+			let block = document.createElement('span');
+			block.classList.add('block')
+			document.querySelector('section').appendChild(block)
+		}
+		 function st() {
+		 	// body...
+		 	anime({
+		 		targets: '.block',
+		 		translateX : function() {
+		 			return anime.random(-600,600)
+		 		},
+		 		translateY: function() {
+		 			return anime.random(-600,600)
+		 		},
+		 		scale: function() {
+		 			return anime.random(2, 5)
+		 		},
+		 	})
+		 }
+		 st()
+	</script>
+	<script type="text/javascript">
+		/*for(let i = 0 ; i <= 400; i ++){
+			let spans = document.createElement('span')
+			spans.classList.add('child');
+			document.querySelector('.cont').appendChild(spans)
+		}
+		anime({
+			targets: '.child',
+			translateY: {
+				value: function(el) {
+					return anime.random(0,window.innerHeight-200)
+				},
+				duration : 1500,
+				delay: -200,
+			},
+			translateX:{
+				value: function() {return anime.random(0, window.innerWidth-100)},
+				// delay: function(el,i,l) {	return i *50} ,
+				// endDelay: function(el,i,l) {return ( l-i ) * 50}
+			},
+			// rotate : {
+			// 	value: anime.stagger([-360,360])
+			// },
+			scale:{
+				value: anime.random(5,8),
+				duration: 0
+			},
+		// 	borderRadius: {
+		// 	value:  function() {return ['50%',anime.random(10,35)+'%']},
+		// 	duration: 3000
+		// },
+		scaleY: {
+			value : anime.random(3,1)
+		},
+		scaleX: {
+			value : anime.random(3,1)
+		},
+			duration: 1520,
+			direction: 'easeOutQuad',
+			// delay: anime.stagger(100,{easing: 'easeOutQuad'}),
+			// delay: function(el,i,l) {	return i *100} ,
+			endDelay: function(el,i,l) {return ( l-i ) * 100},
+			loop: false
+		})
+		document.querySelector('h1').onclick  =function() {
+			anime({
+			targets: '.child',
+			translateY: {
+				value: function(el) {
+					return anime.random(0,window.innerHeight-300)
+				},
+				duration : 1500,
+				delay: -200,
+			},
+			translateX:{
+				value: function() {return anime.random(0, window.innerWidth-100)},
+				// delay: function(el,i,l) {	return i *50} ,
+				// endDelay: function(el,i,l) {return ( l-i ) * 50}
+			},
+			// rotate : {
+			// 	value: anime.stagger([-360,360])
+			// },
+			scale:{
+				value: anime.random(5,8),
+				duration: 0
+			},*/
+		// 	borderRadius: {
+		// 	value:  function() {return ['50%',anime.random(10,35)+'%']},
+		// 	duration: 3000
+		// },
+		/*scaleY: {
+			value : anime.random(3,1)
+		},
+		scaleX: {
+			value : anime.random(3,1)
+		},
+			duration: 1520,
+			direction: 'easeOutQuad',
+			// delay: anime.stagger(100,{easing: 'easeOutQuad'}),
+			// delay: function(el,i,l) {	return i *100} ,
+			endDelay: function(el,i,l) {return ( l-i ) * 100},
+			loop: false
+		})
+		}*/
+		/*
+		let tl = anime.timeline()
+		tl.
+		add({
+			targets: '.cont',
+			transformY: {
+				value: anime.random(1,25),
+				duration: 300
+			},
+			translateX: {
+				value : anime.random(1,23),
+				duration: 700
+			},
+			rotate:{
+				value	: anime.stagger([-360,360])
+			}
+		})*/
+		
+		// rememberance
+		// 
+		/* 
+			var validTransforms = ['translateX', 'translateY', 'translateZ', 'rotate', 'rotateX', 'rotateY', 'rotateZ', 'scale', 'scaleX', 'scaleY', 'scaleZ', 'skew', 'skewX', 'skewY', 'perspective', 'matrix', 'matrix3d'];
+		*/
+		// let tl = anime.timeline()
+		// let a = tl.add({
+			// targets : '.cont',
+			// translateX:{
+			// 	value: 45,
+			// 	delay: function(el,i,l) {	return i *100} ,
+			// 	endDelay: function(el,i,l) {return ( l-i ) * 100}
+			// },
+			// borderRadius: 45,
+			// direction: 'alternate',
+			// loop: true
+		// })
+	</script>
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript">
+		// $(function() {
+		// 	function setColor() {
+		// 		$('h1').css({color: $('body').css('backgroundColor')})
+		// 		let $a = $('.child')
+		// 		let arr = ['yellow', 'black','yellow', 'black','yellow', 'black','yellow', 'black','yellow', 'black','yellow', 'black','yellow', 'black','yellow', 'black','yellow', 'black','yellow', 'black','yellow', 'black','yellow', 'black','yellow', 'black','yellow', 'black','yellow', 'black','yellow', 'black','yellow', 'black','yellow', 'black','yellow', 'black','black','yellow','black','yellow','black','yellow','black','yellow','black','yellow',]
+		// 		for (var i = 0; i < $a.length; i++) {
+		// 			$a.eq(i).css({backgroundColor:`${arr[i]}`})
+		// 		}
+		// 	}
+		// 	setTimeout(setColor, 1);
+
+		// })
+	</script>
+</body>
+</html>

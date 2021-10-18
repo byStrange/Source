@@ -1,0 +1,264 @@
+
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title></title>
+	<link rel="icon" href="images/javas.png" sizes="32x32" type="image/svg">
+		
+	</head>
+	<style type="text/css">
+		.desk{
+			width: 500px;
+			height: 200px;
+			background:linear-gradient(35deg, rgb(48, 250,151), rgb(150, 0,223));
+			overflow: hidden;
+			box-shadow: 0 0 30px 2px gray ;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			border-radius: .75rem;
+		}
+		::-webkit-scrollbar {
+			width:  10px;
+			height: 5px;
+			background: #383934;
+			border-radius: 50px;
+
+		}
+		::-webkit-scrollbar-thumb{
+			background: linear-gradient(to top, #555652, red);
+			box-sizing:  border-box;
+			border-radius: 50px;
+
+		}
+		body{
+			background:#282923 ;
+			padding-left: 15px;
+					}
+		.sss{
+			-webkit-appearance: none;
+				width: 1600px;
+				height: 200px;
+				background: transparent;
+				position: absolute;
+				top: 0;
+				left: 0;
+				cursor: e-resize;
+
+		}
+		.sss::-webkit-slider-thumb{
+			-webkit-appearance : none;
+			width: 15px;
+			height: 15px;
+			border-radius: 50%;
+
+		}
+
+	
+		.sss:focus{
+			outline: none;
+		}
+		p{
+			font-family: Verdana;
+			font-size: 60px;
+			font-variant :small-caps; 
+			text-align: center;
+			text-shadow: 1px 1px 0 red;
+			position: relative;
+
+		}
+		p::after {
+			position: absolute;
+			content: "tik tok";
+			font-family: Verdana;
+			font-size: 60px;
+			font-variant :small-caps; 
+			top: 0;
+			left: 0;
+			text-shadow: -1px -1px 0 blue;
+
+		}
+		p::before{
+			position: absolute;
+			content: "tik tok";
+			font-family: Verdana;
+			font-size: 60px;
+			color: rgba(255,255,255,.5);
+			font-variant :small-caps; 
+			top: 0;
+			left: 0;
+			text-shadow: -2px 1px 0 cyan;
+			}
+			.sss{
+			-webkit-appearance: none;
+				width: 1600px;
+				height: 200px;
+				background: transparent;
+				position: absolute;
+				top: 0;
+				left: 0;
+				cursor: e-resize;
+
+		}
+		.sss::-webkit-slider-thumb{
+			-webkit-appearance : none;
+			width: 15px;
+			height: 15px;
+			border-radius: 50%;
+
+		}
+
+	
+		.sss:focus{
+			outline: none;
+		}
+		span{
+			position: absolute;
+			top: 80%;
+			left: 45%;
+			padding: 5px;
+			background: rgba(0,0,0,.3);
+			border-radius: 15px;
+			font-family: monospace;
+			color: white;
+			transition: all 1s;
+			display: none;
+		}
+		.document{
+			width: 300px;
+			height: 300px;
+			background: rgba(255,255,255,.1);
+			-webkit-backdrop-filter: -webkit-blur(15px);
+
+		}
+		.lorem{
+			width: 100px;
+			height: 100px;
+			border-radius: 50%;
+			background: rgb(109,138,255);
+			position: absolute;
+			top: 400px;
+			left: 10px;
+		}
+		.lorem1{
+			width: 100px;
+			height: 100px;
+			border-radius: 50%;
+			background:rgb(136,0,255);
+			position: absolute;
+			top: 300px;	
+			left: 40px;
+		}
+		.wow-effect{
+			background: linear-gradient(90deg, red,green,blue );
+			-webkit-background-clip: text;
+			display: inline-block;
+			color: transparent;
+			animation-name: animeText ;
+			width: 100px;
+			animation: animeText 1s linear infinite	
+		}
+@keyframes animeText {from{background-position: -100px}to{background-position: 0px;}}
+/*audio{
+	width: 500px;
+	-webkit-appearance: media-slider;
+	border-radius: 20px;
+	background: red;
+
+}
+audio::-webkit-media-controls-timeline{
+	-webkit-appearance: media-slider;
+}
+audio::audio::-webkit-media-controls-enclosure{
+	height: 100px;		
+}*/
+
+	</style>
+	
+    <!--  <link rel="stylesheet" href="css/bootstrap.min.css">
+     <link rel="stylesheet" href="css/font-awesome.min.css">
+     <link rel="stylesheet" href="css/owl.carousel.css">
+     <link rel="stylesheet" href="css/owl.theme.default.min.css"> -->
+
+	<body>
+ 		 
+			<span>text copied</span>
+		<div class="desk"><p>tik tok</p><input type="range" name="" min="0" max="1600" class="sss"></div>
+		
+		<label for="title" title="copy ">
+			Copy background-color
+		</label>
+		 <button>copy</button> 
+		<input type="" name="">
+		<div class="document"></div>
+		<div class="lorem"></div>
+		<div class="lorem1"></div>
+		<h1 class="wow-effect">salom</h1>
+	</body>
+	<script type="text/javascript">
+		let range = document.querySelector('input');
+		range.oninput = function(e) {
+			document.querySelector('.desk').style.width = this.value + 'px';
+			if (this.value < 380) {
+				document.querySelector('p').style.display =   'none'	
+			}
+			
+			else {
+				document.querySelector('p').style.display = 'initial'	
+
+			}
+		}
+		let rang  = `linear-gradient(to left , rgb(${Math.floor(Math.random()*255) }, ${Math.ceil(Math.random()*255)},${Math.round(Math.random()*255)}), rgb(${Math.round(Math.random()*255) }, ${Math.floor(Math.random()*255)},${Math.ceil(Math.random()*255)}))`
+		document.body.style.background = rang
+		console.log(rang);
+		document.querySelectorAll('input')[1].value = rang
+		let ranger = document.querySelectorAll(`[type="range"]`)[1]
+
+		
+	let s = document.querySelectorAll('input')[1];
+
+		document.querySelector('button').onclick = function() {
+			// body...	
+	s.select()
+	document.execCommand('copy');
+		document.querySelector('span').style.display = 'inline';
+			document.querySelector('span').style.opacity = 1; 
+			opacity()
+
+		}
+		function opacity() {
+			setTimeout(()=>{
+				document.querySelector('span').style.opacity = 0;
+			},500)
+		}	
+		setTimeout(opacity,1000)
+	</script>
+		<!-- <script type="text/javascript">
+			document.body.style.height = '200vh'
+			let newDiv = document.createElement('div')
+			newDiv.classList.add('demo')
+			
+			document.body.appendChild(newDiv)
+			let s = document.getElementsByClassName('demo')
+		
+			for (var i = 0; i < s.length ; i++) {
+					
+				s[i].style.background = 'red';
+				console.log(s[i]);
+				let int = document.getElementsByClassName('s')
+				s[i].innerHTML  = `<input class="s" > `
+			
+				
+						}
+
+			window.onscroll = function (e) {
+				// body...
+				
+				if (scrollY> 100) {
+					console.log(i)
+				}
+			}
+		</script> -->
+</html>
+ 

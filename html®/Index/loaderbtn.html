@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Loader in Buttons</title>
+		<link rel="icon" href="images/javas.png" sizes="32x32" type="image/svg">
+
+		<meta charset="utf-8">
+	<style type="text/css">
+		*
+		{
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+		body{
+			min-height: 100vh;	
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+		.loader
+		{ 
+			display: inline-block;
+			width: 15px;
+			height: 15px;
+			border-radius: 50%;
+			border: 1px solid var(--bs-success);
+			border-bottom: transparent;
+			border-left: transparent;
+			animation: animate 1.5s linear infinite;
+			display: none;
+			position: absolute;
+			top: 10px;
+			backface-visibility: hidden;
+		}
+		:focus{
+			outline: none;
+		}
+		button
+		{
+			width: 90px;
+		/*	min-width: 200px;
+			min-height: 86px;
+*/		/*	border: none;
+			outline: none;
+			padding: 5px;
+			background: #0C6421;
+			background-size: cover;
+			-webkit-user-select : none;*/
+			position: relative;
+			text-shadow: -1px 1px 0 cyan; 
+
+		}
+		p
+		{
+			font-family: corbel;
+			color: #a1c2d3;
+			transition: 700ms;
+		}
+		.nw{
+			transition: 1.5s
+		}
+		.nw:hover
+		{
+			box-shadow: 0 0 50px 5px #0C9121;
+
+		}
+		.nw:active{
+			color: transparent !important;
+			}
+		.nw:hover .loader{
+			border-color: #fff;
+		}
+		@keyframes animate
+		{
+			from{
+				transform: rotate(0deg);
+			}
+			to{
+				transform: rotate(720deg);
+			}
+		}
+		input{
+			position: relative;			
+		}
+	</style>
+	</head>
+
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css"> 
+	<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+	<body class="bg-dark"> 
+		<!-- <i class="fa fa-facebook" style="background: blue;padding: 10px;border-radius: 4px;color :white"></i> -->
+		<button class="nw btn btn-outline-success">submit</button>
+		
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<script type="text/javascript">
+			$(function() {
+				$('.text-box').fadeOut();
+				$('.nw').on({
+					click : function() {
+						$(this).empty();
+						$('.nw').css({
+							width : '90px',
+							height : '38px',
+							perspective: '600px',
+							transition: '400ms',
+							transform: 'rotateX(-180deg)'
+						});
+
+						$('.nw').append('<span style=display:inline-block class=loader></span>');
+						$('span').css({
+							left: '38px'
+						})
+
+					}
+				})
+			
+					
+			});
+		</script>	
+	</body>	
+</html>
+<!-- <option value="Gill Sans MT">default</option>
+			<option>Verdana</option>
+			<option>Monospace</option>
+			<option>Candara</option>
+			<option>Copperplate Gothic border-left</option>
+			<option>Eras Medium ITC</option>
+			<option>Harlow Solid Italic</option>
+			<option>Corbel</option>
+			<option>MS Outlook</option>
+			<option>symbol</option>

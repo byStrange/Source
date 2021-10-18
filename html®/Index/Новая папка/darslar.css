@@ -1,0 +1,424 @@
+ /* dars 1  */
+ /*body{
+	margin: 0;
+	padding: 0;
+}
+h1{
+	text-align: center;
+	color: blue;
+	font: 25px Tahoma;
+}
+.yoz {
+	font-variant: small-caps;
+	width: 80%;
+	min-height: 100px;
+	margin: auto;
+	border: 1px solid lightblue;
+	background: #353637;
+	line-height: 20px;
+}*/
+/* Dars 2  */
+/*body{
+	margin: 0;
+	padding: 0;
+
+}
+div 
+{
+	height: 150px;
+}
+img 
+{
+	width: 150px;
+}*/
+/*.gradient{
+	width: 90%;
+	height: 250px;
+	margin: 0 auto;
+	border: 20px dashed;
+	border-image-source: linear-gradient(0deg,yellow, cyan, orange);
+	border-image-slice: 1;
+ }
+ .gfe{
+ 	width: 90%;
+	height: 250px;
+	margin: 0 auto;
+	border: 2px solid blue;
+ 		background: linear-gradient(to bottom,
+		blue 0%,
+		blue 30%,
+		red 31%,
+		red 35%,
+		white 36%,
+		white 66%,
+		red 67%,
+		red 72%,
+		green 73%,
+		green 100%)
+ }
+
+ .head{
+ 	width: 90%;
+ 	height: 500px;
+ 	background-color: #ccc;
+ 	margin: 5% auto;
+ }
+ .row{
+ 	width: 200px;
+ 	height: 200px;
+ 	background: BLUE;
+ 	position: absolute;
+ 	top: 50%;
+ 	left: 50%;
+ 	z-index: 10;
+ }
+ .rew{
+ 	width: 100px;
+ 	height: 100px;
+ 	background: yellow;
+ 	position: absolute;
+ 	top: 50%;
+ 	left: 60%;
+ 	z-index: 11;
+ }*/
+/*
+	Shaxsiy rotate
+*/
+/* body{
+	background: #d3d3d3;
+	width: 100%;
+	height: 40rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+ }
+ .gen{
+ 	width: 300px;
+ 	height: 450px;
+ 	margin: 40 auto;
+ 	perspective: 600px;
+ }
+  .head{
+ 	width: 100%;
+ 	height: 100%;
+ 	background-color: inherit;
+ 	position: absolute;
+ 	top: 0;
+ 	left: 0;
+ 	border: 2px solid;
+ 	animation-name: animation;
+ 	animation-duration: 5s;
+ 	animation-timing-function: linear;
+ 	animation-iteration-count: infinite;
+ 	border-image-slice: 1; 
+ 	background-color: red;
+ 	transform: rotateX(0deg);
+ 	transition: .5s;
+ 	box-shadow: 0 0 30px #000
+ }
+ .gen:hover .head{
+ 	transform: rotateX(-180deg);
+ }
+ .sec{
+	background: #333;
+	overflow: hidden;
+ 	width: 300px;
+ 	height: 450px;
+
+ 	background-color: inherit;
+ 	border: 2px solid;
+ 	animation-name: animatsiya;
+ 	animation-duration: 3s;
+ 	animation-timing-function: linear;
+ 	animation-iteration-count: infinite;
+ 	border-image-slice: 1; 
+ 	transform: rotateX(180deg);
+ 	backface-visibility: hidden;
+	background: #333;
+ 	box-shadow: 0 0 30px #000;
+ 	display: flex;
+	text-align: center;
+	transition:  .5s;  
+
+ }
+ .gen:hover .sec{
+ 	transform: rotateX(0deg);
+ }
+@keyframes animatsiya {
+	0%{
+		border-image-source: linear-gradient(red,blue,#000);
+	}
+}
+@keyframes animation {
+	0%{
+		transition: 5s;
+		border-image-source: linear-gradient(red);
+	}
+	15%{
+	 	border-image-source: linear-gradient(red,blue)
+	}
+	20%{
+		border-image-source: linear-gradient(red,blue,black)
+	}
+}*/
+
+
+/*
+	Shyaxmat css3
+*/
+
+/*table {
+  border: 2px solid red;
+  width: 80%;
+  height: 500px;
+  margin: auto;
+  border-collapse: collapse;
+}
+td {
+  padding: 25px;
+  border: 2px solid red;
+}
+ tr:nth-child(odd) td:nth-child(odd) {
+  background: black;
+}
+tr:nth-child(even) td:nth-child(even) {
+  background: black;
+}*/
+
+ /*
+
+<!-- A :: target
+
+ 		pseudo class
+ 		pseudo element
+ 		 -->
+ */
+/*input{
+	width: 200px;
+	height: 10px;
+	transition: 1.2s;
+	background-color: white;
+	border: none;
+	border-bottom: 1px solid red;
+}
+input:focus{
+	border: none;
+	
+}
+:target{
+	border: 2px solid cyan;
+	background: gray;
+}
+p::selection{
+	background-color: black;
+	color: white
+}
+span{
+	background-color: red;
+	transform: translate(0);
+}
+span:hover{
+	transform: translate(0, -50px);
+}*/
+/*
+animatsiya
+*/
+
+/*.row{
+	width: 50px;
+	height: 50px;
+	background: black;
+	position: relative;
+	top: 150px;
+	left: 50%;
+	animation: animate 2s ease forwards infinite;
+}
+span{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 46px;
+	height: 46px;
+	border: 2px solid blue;
+}
+@keyframes animate{
+	from{
+		transform: rotate(0deg);
+	}
+	to{
+		transform: rotate(360deg);
+		background: red
+	}
+}
+span:nth-of-type(1){
+	animation: span_1 1s forwards alternate infinite;
+}span:nth-of-type(2){
+	animation: span_2 1s forwards alternate infinite;
+}span:nth-of-type(3){
+	animation: span_3 1s forwards alternate infinite;
+}span:nth-of-type(4){
+	animation: span_4 1s forwards alternate infinite;
+}
+@keyframes span_1 {
+	from {
+		transform: translate(0);
+	}
+	to{
+		transform: translate(0, 50px);
+		background: gray
+	}
+}@keyframes span_2{
+	from {
+		transform: translate(0);
+	}
+	to{
+		transform: translate(0, -50px);
+		background: gray
+
+	}
+}@keyframes span_3 {
+	from {
+		transform: translate(0);
+	}
+	to{
+		transform: translate(50px, 0px);
+		background: gray
+
+	}
+}@keyframes span_4 {
+	from {
+		transform: translate(0);
+	}
+	to{
+		transform: translate(-50px, 0px);
+		background: gray
+
+	}
+}*/
+
+/*
+Uyga vazifa animate
+*/
+/**{
+	margin: 0 ;
+	padding: 0;
+
+}
+body{
+	background: #33040F;
+}
+.main{
+	margin-top: 15px;
+	width: 800px;
+	height: 650px;
+	border: 1px solid blue;
+}
+.koptok{
+	position: absolute;
+	width: 80px;
+	height: 80px;
+	background-image: linear-gradient(45deg,red 0%, red 33%,green 34%, green 66%,yellow 67%,yellow 100%);
+	border-radius: 50%;
+	animation-name: koptok;
+	animation-duration: 10s;
+	animation-delay: .6s;
+	transition: 2s;
+	z-index: 2;
+	
+	
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+}
+.setka{
+
+	width: 100px;
+	height: 250px;
+	background: red;
+	position: absolute;
+	top: 30px;
+	left: 640px;
+	border: 2px solid;
+	z-index: 1;
+	border-image-source: linear-gradient(red,blue,black,yellow);
+	border-image-slice: 1;
+	transform: skew(-15deg);
+	padding-top: 40px; 
+	box-sizing: border-box;
+}
+.teshi{
+	width: 57px;
+	position: absolute;
+	top: 70px;
+	left: 744px;
+	border-top: 20px solid blue;
+	z-index:0;
+}
+.detal{
+	box-sizing: border-box;
+	width: 100px;
+	height: 100px;
+	position: absolute;
+	top: 150px;
+	left: -100px;
+	background: red;
+	border: 2px solid black;
+	transform: rotateX(45deg);
+}
+@keyframes koptok {
+	0%{
+		top: 20px;
+		left: 10px;
+	}
+	6%	{
+		top: 585px;
+		left: 100px
+	}
+	9%{
+		top: 400px;
+		left: 130px;
+	}
+	12%{
+		top: 585px;
+		left: 160px;
+	}
+	15%{
+		top: 500px;
+		left: 200px
+	}
+	18%{
+		top: 585px;
+		left: 250px
+	}
+	25%{
+		top: 33px;
+		left: 470px;
+	}
+	30%{
+		top: 150px;
+		left: 540px;
+	}
+	31%{
+		top: 180px;
+		left: 540px;
+
+	}
+	40%{
+		top: 586px;
+		left: 450px;
+	}
+	60%{
+		top: 585px;
+		left: 3px;
+	}
+	100%{
+		top: 20px;
+		left: 10px;
+	}
+}*/
+.main{
+	width: 50px;
+	height: 50px;
+	background: red;
+	transform: rotateZ(50deg) rotateZ(360deg);
+}

@@ -1,0 +1,202 @@
+/*
+	® my first web page 
+	Issues and privacy-policy  :  https://t.me/byStrange
+*/
+
+:root {
+  --bs-blue: #0d6efd;
+  --bs-indigo: #6610f2;
+  --bs-purple: #6f42c1;
+  --bs-pink: #d63384;
+  --bs-red: #dc3545;
+  --bs-orange: #fd7e14;
+  --bs-yellow: #ffc107;
+  --bs-green: #198754;
+  --bs-teal: #20c997;
+  --bs-cyan: #0dcaf0;
+  --bs-white: #fff;
+  --bs-gray: #6c757d;
+  --bs-gray-dark: #343a40;
+  --bs-primary: #0d6efd;
+  --bs-secondary: #6c757d;
+  --bs-success: #198754;
+  --bs-info: #0dcaf0;
+  --bs-warning: #ffc107;
+  --bs-danger: #dc3545;
+  --bs-light: #f8f9fa;
+  --bs-dark: #212529;
+  --bs-font-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+}
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+		/*border: 1px solid red;	*/
+}
+body{
+	background: #F0F8FF;
+	padding: 3px;
+}
+
+
+header.header{
+	width: 98%;
+	height: 70px;
+	margin: 0 auto;
+	background: #500ac4;
+	border-radius: 3px;	
+	box-shadow: 0 0 20px 2px gray;
+	transition: 1.5s;
+}
+	
+div.nav-links{
+	display: flex;
+	align-items: center;
+	min-height: 70px;
+	font-size: 20px;
+	padding-left: 5px;
+}
+div.nav-links ul {
+	list-style: none;
+}
+div.nav-links ul li a{
+	/*color: #F92372;*/
+	color: var(--bs-purple);
+	font-family: sans-serif;
+	/*padding-left: 10px;*/
+	text-decoration: none;
+	user-select: none;
+	text-shadow: 1px 3px 1px black;
+	transition: all .150s;
+	margin-left: 2px;
+	-webkit-appearance: none;
+}
+div.nav-links ul li a:hover{
+	opacity: .80;
+}
+div.nav-links ul li a:active{
+	text-shadow: none;
+}
+
+
+div.search-content{
+	display: flex;
+	justify-content: flex-end;
+	border-color: blue;
+
+}
+div.search-content button.submit{
+	transform: translateY(-48px) translateX(-20px);
+	border: none;
+	padding: .25rem .75rem;
+	/*background: #423ac4;*/
+	/*background: transparent;*/
+	border-radius: 2.5px;
+	border: 0.4px solid #999	;
+	transition: .2s ;				 
+
+}/*div.search-content button.submit:hover{
+	background: #460ac4;
+
+}
+div.search-content button.submit:active{
+	box-shadow: none;
+}
+div.search-content button:focus {
+	outline: none;
+}*/
+/*
+	General input styles
+*/
+div.search-content div.search input{
+	float: right;
+	transform: translateY(-48px) translateX(-20px);
+	border: none;
+	text-transform: lowercase;
+	padding: 0.25rem 0.24rem;
+	transition: .20s ;
+	background: transparent;
+	border-bottom: 1px solid gray;
+	font-variant: small-caps;
+	color: #70ce43;
+}
+/*
+	when input will be focused that will be scaled
+*/
+div.search-content div.search input:focus{
+	outline: none;
+	border-bottom-color: #1E90FF;
+	transform: translateX(-700px) translateY(250px) scale(4,4) ;
+	
+}
+/* 
+	this class uses in script to show where are staying!
+*/
+.underlinedTextDecoration, #underline{
+	text-decoration: underline;
+}
+main.main{
+	width: 98%;
+	min-height: 200vh;
+	background: #D9C8F3;
+	margin: 5px auto;	
+	border-radius: 5px;
+	box-shadow:  0 0 100px  2px gray;
+	padding: 30px;
+}
+div.main-content div.main-box{
+	width: 500px;
+	min-height: 0 ;
+	overflow: hidden;
+	/*background: var(--bs-danger);*/
+	background: linear-gradient(35deg,#fff, #ddd, #ccc, #aaa,#acc);
+	font-family: var(--bs-font-sans-serif);
+	padding: 10px;
+	border-radius: 10px;
+	box-shadow: 0 0 40px  var(--bs-gray);
+	display: inline-block; 
+	margin-right: 30px;
+		}
+blue{
+	color: blue;
+}
+red{
+	color: var(--bs-success);
+}
+.big-box{
+	width: 900px;
+	height :108px; 
+	display: inline-block;
+	background: var(--bs-danger);
+	font-family: var(--bs-font-sans-serif);
+	box-shadow: 0 0 40px  var(--bs-gray);
+	border-radius: 10px;
+	overflow: hidden;
+	padding: 10px;
+	/*transform: translateY(20px);*/
+	margin-top: 20px;
+	border-bottom-left-radius: 0; 
+	border-bottom-right-radius: 0; 
+
+}
+.big-box-continue{
+	margin-bottom: 50px;
+	width: 98.840%;
+	min-height :0; 
+	/*display: inline-block;*/
+	background: var(--bs-danger);
+	font-family: var(--bs-font-sans-serif);
+	border-radius: 10px;
+	overflow: hidden;
+	padding: 10px;
+	/*transform: translateY(14px) ;*/
+	border-top-right-radius: 0; 
+}
+.isOpenFalse{
+	display: none;
+}
+javascript{
+	color: var(--bs-indigo)
+}

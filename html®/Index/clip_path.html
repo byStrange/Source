@@ -1,0 +1,148 @@
+`<!DOCTYPE html>
+<html>
+<head>
+	<title>Clip path with CSS</title>
+	<link rel="icon" href="images/javas.png" sizes="32x32" type="image/svg">
+	
+	<style type="text/css">
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		body{/*
+			min-height: 100vh;
+			position: relative;
+			display: flex;
+			justify-content: center;
+			align-items: center;*/
+		}
+		.card{
+			width: 300px;
+			height: 400px;
+			position: relative;
+			perspective: 1200px;
+			transition: 1.5s;
+		}
+		.card .front{
+			width: 100%;
+			height: 100%;
+			box-shadow:  0 0 20px 4px gray;
+			position: absolute;
+			top: 0;
+			left: 0;
+			background-color: #55a;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			transition: 500ms;
+			transform: rotateY(0);
+			backface-visibility: hidden;
+		}
+		h4{
+			font-family: cursive;
+			font-size: 20px;
+			color: #45acd3;
+			position: relative;
+
+		}
+		h4::after{
+			content: "Salom front";
+			position: absolute;
+			top: 4px;
+			left: 0;
+			-webkit-filter: blur(3px);	
+		}
+		h4::before{
+			content: "Salom front";
+			position: absolute;
+			top: -4px;
+			left: 0;
+			color: #45add4;
+			-webkit-filter: blur(3px);	
+		}
+		h3{
+			font-family: candara;
+			font-size: 20px;
+			color: #45acd3;
+			position: relative;
+
+		}
+		h3::after{
+			content: "<welcome to code />";
+			position: absolute;
+			top: 4px;
+			left: 0;
+			-webkit-filter: blur(3px);	
+		}
+		h3::before{
+			content: "<welcome to code />";
+			position: absolute;
+			top: -4px;
+			left: 0;
+			color: #45add4;
+			-webkit-filter: blur(3px);	
+		}
+		h3:hover{
+			color: cyan;
+			transition: 2s;
+		}
+		::selection{
+			background: gray;
+			}
+		.back{
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			top: 0;
+			left: 0;
+			background-color: #55a;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			transition: .5s;
+			box-shadow:  0 0 20px 4px gray;
+			transform: rotateY(180deg);
+			backface-visibility: hidden;
+
+				}
+				.card:hover .front{
+					transform: rotateY(-180deg);
+				}
+				.card:hover .back{
+					transform: rotateY(0deg);
+				}
+
+				.first{
+					width: 200px;
+					height: 200px;
+					background: black;
+					position: absolute;
+					z-index: 415464;
+					top: 50%;
+					left: 50%;
+					transform: translate(-50%,-50%);
+					transition:-webkit-clip-path 1s;
+					-webkit-clip-path: circle(0% at 0% );
+					border-radius: 50%;
+				}
+				.toggler{
+					-webkit-clip-path : circle(100%);
+					border-radius: 50%;
+				}
+	</style>
+</head>
+<body>	
+	<div class="card">
+		<div class="front"><h4>Salom front</h4></div>
+		<div class="back"><h3>Hello  world </h3></div>
+	</div>
+<!-- 	<div class="div">
+		<div class="first">
+		</div>
+	</div>
+	<button onclick="document.querySelector('.first').classList.toggle('toggler')">Click</button> -->
+</body>
+<script type="text/javascript">
+	document.querySelector('h3').innerText = '<welcome to code />'
+</script>
+</html>

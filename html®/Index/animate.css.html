@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Animate Css3</title>
+	<link rel="stylesheet" type="text/css" href="animate.css/animate.css">
+	<style type="text/css">
+		body{
+			background: #151515;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			min-height: 100vh;
+		}
+		div{
+			width: 50px;
+			height: 50px;
+			border: 1px solid red;
+			background: red;
+		}
+	</style>
+</head>
+<body>
+	<div class="  animate__animated "></div>
+</body>
+<script type="text/javascript">
+	window.onclick = anime
+	function anime() {
+		document.querySelector('div').classList.toggle('animate__zoomIn')
+	}
+</script>
+</html>

@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link href="js/jquery-ui/jquery-ui.css" rel="stylesheet">
+
+	<style type="text/css">
+body{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+	/*background: rgba(255,255,0,1)*/
+	/*background: #151515;*/
+	background-size: 100%;
+}
+div{
+	position: relative;
+	width: 500px;
+	height: 500px;
+	border-radius: 15px;
+	background-blend-mode: multiply;
+	box-shadow:inset 3px 3px 5px black, inset -2px -3px 5px black;;
+	background: white;
+	/*background-size: 100%;*/
+	background: white;
+}
+			::-webkit-media-controls-enclosure{
+	}
+
+::-webkit-media-controls-panel{
+	-webkit-appearance: none;
+	background:transparent;
+	width: 468px;
+	box-shadow:inset 3px 3px 5px black, inset -2px -3px 5px black;
+	height: 470px;
+	padding: 15px;
+	border-radius: 15px;
+
+}
+::-webkit-media-controls-volume-slider{
+	position: absolute;
+	left: 85%;
+	transform: rotate(-90deg) scale(2,2) ;
+	top: 40%;
+	display: none;
+}
+
+/*
+ play button in audi tag
+*/
+::-webkit-media-controls-play-button{
+	position: absolute;
+	top: 70%;
+	left: 45%;
+	transform: scale(2,2);
+	box-shadow:  2px 1px 4px black;
+	border-radius: 15px;
+	transition:all 1s;
+	background-color: rgba(255,255,255,.1);
+	display: none;
+}
+:focus{
+	outline: none;
+}
+/*
+::-webkit-media-controls-play-button:hover{
+	border-radius: 15px;
+	transition: 500ms;
+	background: rgba(255,255,255,.1);
+	-webkit-appearance: play;
+}
+::-webkit-media-controls-play-button:active{
+	border-radius: 15px;
+	transition: 500ms;
+	background: rgba(255,255,255,.3);
+	/*-webkit-appearance: play;
+	box-shadow: inset 2px 1px 4px black
+}*/
+::-webkit-media-controls-timeline{
+	position: absolute;
+	top: 60%;
+	left: 0px;
+	width: 90%;
+	transition: 1s;
+	background: transparent;
+	z-index: 1111
+
+}
+
+/*
+	 Mute button in audio tag
+*/
+::-webkit-media-controls-mute-button{
+	width: 60px;
+	height: 60px;
+	position: absolute;
+	top: 60px;
+	left: 90%;
+	border-radius: 50%;
+	display: none;
+}
+
+/*::-webkit-media-controls-mute-button:hover{
+	transition: 500ms;
+	background: rgba(255,255,255,.1)
+}
+::-webkit-media-controls-mute-button:active{
+	transition: 500ms;
+	background: rgba(255,255,255,.3)
+}*/
+
+::-webkit-media-controls-current-time-display{
+	position: absolute;
+	top: 50%;
+	padding: 5px;
+	font-family: monospace;
+	font-size: 16px;
+	border-radius: 15px;
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+	transition:500ms
+
+}
+::-webkit-media-controls-time-remaining-display{
+	position: absolute;
+	top: 50%;
+	left: 11%;
+	font-family: monospace;
+	font-size: 16px;
+	padding: 5px;
+	border-radius: 15px;
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+	transition:500ms
+}
+h1{
+	position: absolute;
+}
+button{
+	border-radius: 50%;
+	display: inline-block;
+	width: 60px;
+	height: 60px;
+	border: none;
+	box-shadow:inset 3px 3px 3px rgba(0,0,0,0.2),inset -2px -2px 3px rgba(255,255,255,.2);
+	position: absolute !important;
+	z-index: 100;
+	color: red;
+	background: linear-gradient(30deg,rgba(0,0,0,.5) 50%,gray,rgba(255,255,255,.1) 50%);
+	transition: 100ms;
+	-webkit-filter: brightness(80%);
+}
+.left{
+	top: 67.5%;
+	left: 28%;
+}
+.right{
+	top: 67.5%;
+	left: 56.5% !important
+}
+.play{
+	top: 67.5%;
+	left: 42.5%;
+}
+button:hover{
+
+}
+button:active{
+	transform: translateY(3px);
+	animation:anea 250ms alternate;
+}
+h1{
+	position: absolute;
+	top: 15%;
+	left: 42.5%;
+	font-family: verdana;
+	background: linear-gradient(to left,gold,white,gold);
+	-webkit-background-clip: text;
+	color: transparent;
+	background-position: -100px
+}
+h1:hover,h1:active{
+	animation: size 500ms linear infinite;
+}
+@keyframes size{
+ 	to{
+ 		background-position: 0px;
+ 	}
+}
+input[type="range"]{
+	transform: rotate(-90deg);
+	position: absolute;
+	-webkit-appearance : none;
+	height: 10px;
+	border-radius:  10px;
+	background :  rgba(255,255,255,.5);
+	top: 30%;
+	left: 83%;
+	overflow: hidden;	
+	box-sizing: border-box;
+	border:	1px solid gray;
+
+}
+::-webkit-slider-thumb{
+	-webkit-appearance : none;
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	background: rgb(66,133,244);
+	box-shadow: -105px 0 15px 100px rgba(0,0,0,0.225);
+	overflow-y: hidden;	
+}
+.b{
+	position: absolute;
+	top: 46%;
+	left: 91%;
+	border-radius: 50%;
+	transition: 300ms;
+	width: 40px;
+	height: 40px;
+	-webkit-filter: brightness(70%);
+}
+.b:hover{
+	-webkit-filter: brightness(100%);
+}
+.active{
+	animation: anea 500ms alternate;
+	box-shadow: 0 0 0 0.25rem rgba(0,0,0,.1);
+	/*background: linear-gradient(0deg,rgba(0,0,0,.5) 50%,gray,rgba(255,255,255,.1) 50%);*/
+}
+@keyframes anea {
+	
+	0%{
+		background: linear-gradient(30deg,rgba(0,0,0,.5) 50%,gray,rgba(255,255,255,.1) 50%);
+	}
+	7%{
+		background: linear-gradient(60deg,rgba(0,0,0,.5) 50%,gray,rgba(20,255,255,.1) 50%);
+	}14%{
+		background: linear-gradient(90deg,rgba(0,0,0,.5) 50%,gray,rgba(21,255,255,.1) 50%);
+	}21%{
+		background: linear-gradient(120deg,rgba(0,0,0,.5) 50%,gray,rgba(22,255,255,.1) 50%);
+	}28%{
+		background: linear-gradient(150deg,rgba(0,0,0,.5) 50%,gray,rgba(23,255,255,.1) 50%);
+	}35%{
+		background: linear-gradient(180deg,rgba(0,0,0,.5) 50%,gray,rgba(24,255,255,.1) 50%);
+	}42%{
+		background: linear-gradient(210deg,rgba(0,0,0,.5) 50%,gray,rgba(25,255,255,.1) 50%);
+	}49%{
+		background: linear-gradient(240deg,rgba(0,0,0,.5) 50%,gray,rgba(26,255,255,.1) 50%);
+	}56%{
+		background: linear-gradient(270deg,rgba(0,0,0,.5) 50%,gray,rgba(27,255,255,.1) 50%);
+	}63%{
+		background: linear-gradient(300deg,rgba(0,0,0,.5) 50%,gray,rgba(28,255,255,.1) 50%);
+	}70%{
+		background: linear-gradient(330deg,rgba(0,0,0,.5) 50%,gray,rgba(29,255,255,.1) 50%);
+	}77%{
+		background: linear-gradient(360deg,rgba(0,0,0,.5) 50%,gray,rgba(30,255,255,.1) 50%);
+	}84%{
+		background: linear-gradient(390deg,rgba(0,0,0,.5) 50%,gray,rgba(35,255,255,.1) 50%);
+	}/*91%{
+		background: linear-gradient(320deg,rgba(0,0,0,.5) 50%,gray,rgba(255,255,255,.1) 50%);
+	}98%{
+		background: linear-gradient(350deg,rgba(0,0,0,.5) 50%,gray,rgba(255,255,255,.1) 50%);
+	}*/
+}
+::disabled:ative{
+		transform: translateY(0);
+	}
+	i{
+		color: red !important;
+		/*background: rgba(0,0,0,.1) !important;*/
+		transform: scale(1.3,1.3);
+	}
+	</style>
+	<title></title>
+</head>
+<body>
+	
+	
+		<div class="mai">
+			 <audio src="../../music/Telegram Images/s/Wanna go back   Squid.mp3" controls="" ></audio><button class="left" title="previous" disabled=""><i class="ui-icon ui-icon-seek-first"></i></button>
+	<button class="right " title="next"><i class=" ui-icon ui-icon-seek-end"></i></button><button class="play" title="play/pause"> <i class="ui-icon ui-icon-play" ></i></button><input type="range" name="" min="0" max="100" title="100%"> <button class="b"><i class="ui-icon ui-icon-refresh"></i></button><h1 class="number">1/9</h1>
+	</div>
+	<input type="" name="" style="position: absolute;visibility: hidden;" value="0">
+		<!-- <input type="range" name="" style="position: absolute;top: 50px;" min="0" max="1" step=".1"> -->
+
+		<!-- <script type="text/javascript">
+			document.querySelector('[type=range]').oninput = function() {
+			document.querySelector('audio').volume = this.value
+		}
+		</script> -->
+		<script type="text/javascript">
+			let le = document.querySelector('.left');
+			let ri = document.querySelector('.right');
+			// all musics goes here
+			// if you want you can set your music urls in the array that named 'src' 	
+			let src = ['../../music/Telegram Images/s/Wanna go back   Squid.mp3',
+			'../../music/Telegram Images/s/payiz_gecasi.mp3',
+			'../../music/music1.mp3',
+			 '../../music/music2.mp3', 
+			 '../../music/03Kayf.mp3',
+			 '../../music/hadal ahbek.mp3',
+			 '../../music/Elyanna-Enta_Eh_(Hijazi_Remix).mp3',
+			 '../../music/(The strembellas) .mp3',
+			 '../../music/lovely.mp3','../../music/Telegram Images/s/Unknown Brain ft. Marvin Divine - Say Goodbye.mp3',
+			 '../../music/Telegram Images/s/All My Love (ft. Braev) [NCS Release]   Jagsy   Tom Wilson.mp3',
+			 '../../music/Telegram Images/s/Never Be alone    The fatrat.mp3','../../music/Telegram Images/s/Todd Helder - Never Stop [NCS Release] KDtuZilDITs.aac	',
+			 '../../music/Сияй (cover 2021).mp3',
+			 '../../music/▶House_★_Janji_Heroes_Tonight_feat.mp3',
+			 '../../music/Новая папка/Новая папка/Otnicka Blinder .mp3',
+			 '../../music/Новая папка/MACAN_Xcho_Memories.mp3',
+			 '../../music/Новая папка/happiest year [slowed down]   jaymes young.mp3']
+			le.onclick = _s
+			 function _s() {
+				let a = document.querySelectorAll('input')[1].value=document.querySelectorAll('input')[1].value*1-1
+				if (a<=0) {a=0;this.setAttribute('disabled','')}
+				document.querySelector('audio').src=src[a]
+			}
+				ri.onclick = s
+					function s() {
+						document.querySelector('audio').autoplay =true
+				let a = document.querySelectorAll('input')[1].value=document.querySelectorAll('input')[1].value*1+1
+				let b = src.length-1;
+				if (a>=b) {ri.setAttribute('disabled','')}
+	document.querySelector('audio').src = src[a]
+document.querySelectorAll('.ui-icon')[2].classList.add('ui-icon-pause')
+
+
+			}
+			function rem( ) {
+				let a = document.querySelectorAll('input')[1].value*1
+				if (a>0) {
+					le.removeAttribute('disabled')
+				}
+			}
+			setInterval(rem,1)
+function rems() {
+				let a = document.querySelectorAll('input')[1].value*1
+				if (a<src.length-1) {ri.removeAttribute('disabled')}
+}
+setInterval(rems,1)
+		</script>
+		<script type="text/javascript">
+			let play = document.querySelector('.play');
+				let b = document.querySelector('.b');
+					let r = document.querySelector('[type=range]')
+
+			play.onclick = playpause;
+			 function playpause() {
+				if(play.children[0].classList[1]=='ui-icon-play') {
+					play.children[0].classList.remove('ui-icon-play');
+					play.children[0].classList.add('ui-icon-pause');
+					document.querySelector('audio').play()
+				}
+				else {
+					play.children[0].classList.add('ui-icon-play');
+					play.children[0].classList.remove('ui-icon-pause');
+					document.querySelector('audio').pause()
+				}
+			}
+			window.onkeyup = function(e) {
+				let a = document.querySelectorAll('input')[1].value*1
+
+				if (e.keyCode==80||e.keyCode==32) {
+					playpause()
+				}
+				else if (e.keyCode == 77) {
+					mute()
+			}
+				else if (e.keyCode==82) {
+					loop()
+				}	
+				else if (e.keyCode==39) {
+
+					s()
+					if (a+1>src.length-1) {
+						let a = src.length-1
+						document.querySelector('audio').src= src[a]
+						document.querySelectorAll('input')[1].value = a
+					}
+				}
+				else if (document.querySelector('.number').innerText==`2/${src.length}`)  {
+					if (e.keyCode==37) {
+					document.querySelector('audio').src = src[0];
+					document.querySelectorAll('input')[1].value = 0
+				}
+				}
+				else if(a!==0){
+				if (e.keyCode == 37) {
+					_s()
+
+				}
+			}
+			
+				
+				
+			}
+
+			function Ch() {
+				document.querySelector('[type=range]').value = document.querySelector('audio').volume*100
+				r.title=r.value+'%'
+
+			}
+			setInterval(Ch,1)
+			r.oninput =
+			 function volume() {
+				document.querySelector('audio').volume=r.value/100
+				r.title=r.value+'%'
+			}
+			function mute() {
+					if (r.value ==0) {
+						document.querySelector('audio').volume =1
+					}
+					else {
+					document.querySelector('audio').volume=0
+
+					}
+			}
+			b.onclick = loop;
+			function loop() {
+				if (b.classList[1]=='active') {
+				b.classList.remove('active');
+				document.querySelector('audio').loop=false
+
+					}
+				else {
+					b.classList.add('active')
+					document.querySelector('audio').loop =true
+				}
+			}
+			function set() {
+				let a = document.querySelectorAll('input')[1].value*1
+				document.querySelector('.number').innerText =a+1+'/'+(src.length)
+			}
+			setInterval(set,1)
+				console.log('You are listening my playlist \nType help() to get help')
+					function help() {
+						console.log(`\nonkeypress at window: {\n    key: p = pause/play, // keyCode=80\n    key: m = mute/unmute, // keyCode=77\n    key: space = pause/play, // keyCode=32\n    key: (next,previous)=>{\n        ->: nextMusic,\n        <-: previousMusic\n}\n}\n`)
+					}
+						let rang  = `linear-gradient(${Math.round(Math.random()*360)}deg , rgb(${Math.floor(Math.random()*255) }, ${Math.ceil(Math.random()*255)},${Math.round(Math.random()*255)}), rgb(${Math.round(Math.random()*255) }, ${Math.floor(Math.random()*255)},${Math.ceil(Math.random()*255)}))`
+						let rangs = ['linear-gradient(332deg, rgb(6, 55, 83), rgb(122, 73, 56));']
+						document.body.style.background = rang
+						document.querySelector('div').style.background = rang
+						document.querySelector('div').style.backgroundSize =`90%`
+
+		</script>	
+</body>
+</html>

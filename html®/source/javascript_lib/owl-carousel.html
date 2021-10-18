@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./OwlCarousel2-2.3.4/dist/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="./OwlCarousel2-2.3.4/dist/assets/owl.theme.default.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        .owl-item{
+            width: 100vw;
+            height: 100vh;
+            background: red;
+        }
+    </style>
+</head>
+<body class="bg-light">
+    
+    <div class="owl-carousel owl-theme owl-loaded">
+        <div class="owl-stage-outer">
+            <div class="owl-stage">
+                <div class="container-fluid">
+                    <div class="owl-item">
+                        <h1>Hello world</h1>
+                        <h5>    </h5>
+                    </div>
+
+                </div>            
+            </div>
+            <div class="owl-item"></div>
+        </div>
+        <div class="owl-nav">
+            <div class="owl-prev">prev</div>
+            <div class="owl-next">next</div>
+        </div>
+    </div>
+
+    <script src="../../Index/js/jquery.js"></script>
+    <script src="./OwlCarousel2-2.3.4/dist/owl.carousel.min.js"></script>
+    <script>
+        $(function() {
+            $('.owl-carousel').owlCarousel()
+        })
+    </script>
+</body>
+</html>

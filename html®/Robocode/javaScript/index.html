@@ -1,0 +1,21 @@
+<script type="text/javascript">
+function generatePassword() {
+		var chars = 'absdefghijkmnopqrstyvwxyzABSDEFGHIJKMNOPQRSTYVWXYZ0123456789!@#$%^&*(){}[]?:<>'
+	var passWordLength = 16;
+	var password = ''
+
+	for (var i = 0; i < passWordLength; i++) {
+		var randomNumber = Math.floor(Math.random() * chars.length )
+		password += chars.substring(randomNumber,randomNumber - 1)
+	}
+		document.write(password)
+		return password
+
+}
+var __passWord__ = []
+function addGeneratedumberToArray(a) {
+	for(var i = 0; i < a; i++) {
+		__passWord__.push(generatePassword())
+	}
+}		
+</script>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Loader</title>
+	<link rel="stylesheet" type="text/css" href="css/loader.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="icon" href="images/javas.png" sizes="32x32" type="image/svg">
+	
+</head>
+<body>
+	<div class="main">
+		<div class="loader"></div>
+	</div>
+	
+</body>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript">
+
+	
+		// body...
+		
+$(function () {
+	let rang  = `linear-gradient(to left , rgb(${Math.floor(Math.random()*255) }, ${Math.ceil(Math.random()*255)},${Math.round(Math.random()*255)}), rgb(${Math.round(Math.random()*255) }, ${Math.floor(Math.random()*255)},${Math.ceil(Math.random()*255)}))`
+$('body').css({
+	background : rang
+});
+})
+
+</script>
+</html>

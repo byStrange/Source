@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title></title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+			overflow: hidden;
+		}
+		.root{
+			position: relative;
+			padding: 10px;
+			display: flex;
+			align-items: center;
+			justify-content: space-around;
+			width: 100vw;
+			height: 100vh;
+			background: #121515;
+			transform: translateX(-15px);
+		}
+		.newElements{
+			width: 20%;
+			height: 40%;
+			border: 3px solid;
+			border-image-source: linear-gradient(red,blue,cyan);
+			border-image-slice: 1;
+			position: relative;
+		}
+		.after{
+			display: inline-block;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%,-50%);
+			color: rgba(255,255,255,0);
+			font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+			font-size: 25px;
+		}
+		.newElements:hover .after{
+			color: rgba(255,255,255,.1)
+		}
+	</style>
+</head>
+<body>
+	<div class="root"></div>
+	<script src="../../source/node_modules/animejs/lib/anime.js"></script>
+	<script src="test.js"></script>
+<div>
+	<ul>
+		<li>
+			<a href=""></a>
+			<a href=""></a>
+			<a href=""></a>
+			<a href=""></a>
+		</li>
+	</ul>
+</div>
+</body>
+</html>

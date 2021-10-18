@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+   <link rel="stylesheet" href="css/bootstrap.min.css">
+ <link rel="icon" href="images/javas.png" sizes="32x32" type="image/svg">  
+<title></title>
+</head>
+<body>    
+          	<style type="text/css">
+body{
+background: #151515;
+overflow: hidden;
+}
+.msgBox{
+width: 70px;
+height: 70px;
+position: absolute;
+border-radius: 50%;
+top: 50%;
+left: 50%;
+transform: translate(-50%,-50%);
+transition: .5s;
+display: flex;
+justify-content: center;
+align-items: center;
+background: linear-gradient(35deg,rgba(255,255,255,.5),rgba(0,0,0,0.3)); 
+/*box-shadow: inset 2px 2px 4px white,inset -2px -2px 4px black;*/
+box-shadow:inset 3px 3px 3px rgba(255,255,255,.2),inset -2px -2px 3px rgba(0,0,0,0.2);
+}
+h1{
+font-size:1.7em
+}
+div.draggableBox{
+width: 100px;
+height: 100px;
+background: rgba(255,255,255,.3);
+z-index: 1000;
+transform: translate(-50%,-50%);
+margin: 50px;
+cursor: -webkit-grab
+}
+div.draggableBox:active{
+cursor: -webkit-grabbing;
+}
+          	</style>  
+          	<h1></h1>         
+<!-- text -->
+    <!-- <h1 class="text-muted">
+      this a muted  <a href="https://" class="text-reset">link</a>
+    </h1> -->
+<!--// text -->
+<div class="msgBox"><h1 ><i class="fa fa-telegram"></i></h1></div>
+<div class="draggableBox"></div>
+<!-- <script type="text/javascript">
+document.querySelector('div').style.width=' 70px'
+window.onkeyup = function(e) {
+		document.querySelector('div').style.width = e.keyCode + 70	+'px'
+		document.querySelector('div').style.height = e.keyCode + 70+'px'
+		document.querySelector('div').style.borderRadius = e.keyCode +'px'
+		document.querySelectorAll('h1')[1].innerHTML = e.keyCode
+		if (e.keyCode == 37) {alert()}
+	}
+</script> -->
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript">
+	$(function() {
+		$(window).on({
+			keyup: function(e) {
+				if (e.keyCode == 39) {
+				$('div.msgBox').css({
+					left: '+=25px'
+				})
+				$('h1').eq(1).text('right')
+
+				}					else if (e.keyCode == 40) {
+					$('div.msgBox').css({
+						top: '+=25px'
+					})
+				$('h1').eq(1).text('down')
+
+				}
+				else if (e.keyCode == 38) {
+					$('div.msgBox').css({
+						top: '-=25px'
+					})
+				$('h1').eq(1).text('up')
+
+				}
+				else if (e.keyCode == 37) {
+					$('div.msgBox').css({
+						left:'-=25px'
+					})
+				$('h1').eq(1).text('left')			
+				}
+				else if (e.keyCode == 101) {
+					$('div.msgBox').css({
+						transform : function() {
+							if ($('div.msgBox').css('transform')=="matrix(0.707107, 0.707107, -0.707107, 0.707107, 0, 0)") {
+								return 'rotate(0)'
+							}
+							else {
+								return 'rotate(45deg)'
+							}
+						}
+					})
+				}
+
+
+			}
+		})		
+		$(window).on({
+			mousemove: function(e) {
+				let x = e.clientX,
+				y = e.clientY;
+				$('div.draggableBox').css({
+
+					top	: y+'px',
+					left : x+'px',
+				})
+				
+			}
+		})		
+		$('div.draggableBox').mousedown(function() {
+			$(this).css({
+				position: 'absolute'
+			})
+			$('div.draggableBox').css({
+					marginLeft:0,
+					marginTop : 0,
+				})
+		})
+		$('div.draggableBox').mouseup(function(e) {
+			$(this).css({
+				position : 'static',
+				marginLeft : e.clientX + 'px',
+				marginTop :  e.clientY + 'px',
+			})
+		})
+	})
+</script>
+</body>
+</html>

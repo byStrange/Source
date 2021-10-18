@@ -1,0 +1,35 @@
+*{
+	margin: 0 ;
+	padding: 0;
+}
+body{
+	/*background: #181915;*/
+}
+
+label{
+	color: #F92372;
+	font-variant: small-caps;
+	font-size: 20px;
+}
+button{
+	background: #F79500;
+	padding: 10px;
+	border: none;
+	border-radius: 5px;
+	color: black
+}
+button:focus{
+	outline: none;
+}
+fieldset{
+	width: 320px;
+	border-radius: 10px;
+	border-color: hsl(54, 71%, 68%);
+}
+legend{
+	color: hsl(207, 44%, 49%);
+}
+.hiddenContent{
+	display: none;
+	margin-left: 10px;
+}

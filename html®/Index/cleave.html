@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../../Main project/css/fweb/css/all.css">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+			color: #fff;
+		}
+		body{
+			background: #050101;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			min-height: 100vh;
+			flex-direction: column;
+		}
+		:focus{
+			outline: none;
+		}
+		.con-1{
+			position: relative;
+			margin-bottom: 50px;
+		}
+		input{
+			border: none;
+			padding: 15px 20px;
+			border-radius: 2.25px;
+			background: rgba(250,255,250,.1);
+			color: #f8f8f8;
+			font-family: Verdana, "Helvetica Neue", Helvetica, sans-serif;
+			font-size: 30px;
+		}
+		div.con-1>i{
+			position: absolute;
+			left: 93%;
+			top: 50%;
+			transform: translate(-50%,-50%);
+			color: rgba(255,255,255,.5);
+		}
+		div.con-1>i:hover {
+			color: rgba(255,255,255,1)
+		}
+		::selection{
+			background: transparent;
+		}
+	</style>
+</head>
+<body>
+
+	<div class="con-1">
+		<input type="text" class="input-element-1" data-type="date" data-isTrue="true" id="cleave" placeholder="DD/YYYY/MM"><i class="fas fa-copy fa-2x" data-copy="copy" data-target=".input-element-1"></i>
+	</div>
+	<div class="con-1">
+		<input type="text" class="input-element-2" id="cleave" placeholder="hh:mm:ss"><i class="fas fa-copy fa-2x" data-copy="copy" data-target=".input-element-2"></i>
+	</div>
+	<div class="con-1">
+		<input type="text" class="input-element-3" id="cleave" placeholder=""><i class="fas fa-copy fa-2x" data-copy="copy" data-target=".input-element-3"></i>
+	</div>
+
+	<script src="js/cleavejs/cleave.min.js"></script>
+	<script src="js/cleavejs/cleave-phone.i18n.js"></script>
+	<script src="js/cleavejs/lib.js"></script>
+	<script >
+		var copy = document.querySelectorAll('[data-copy=copy]')
+		copy.forEach(val=>{
+			val.onclick = function () {
+				target = val.dataset.target
+				el = document.querySelector(target)
+				el.select()
+				document.execCommand('copy')
+			}
+		})
+		var el = document.querySelectorAll('#cleave')
+		setType(el[0], {date:true})
+		setType(el[1], {time:true})
+		setType(el[2], {blocks: [4,2,3,2,2],prefix: '+998'})
+		setType
+		function setType(el, opt) {
+			return new Cleave(el,opt)
+		}
+	</script>
+</body>
+</html>

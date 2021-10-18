@@ -1,0 +1,162 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	color: gray;
+}
+body{
+	height: 100vh;
+	background: url('../walpl.png');
+	background-size: 1%;
+}
+nav.nav{
+
+	width: 100%;
+	height: 64px;
+	display: inline-flex;
+	align-items: center;
+	background: black;
+}
+div.container{
+	width: 90%;
+	margin: 0 auto;
+}
+a{
+	text-decoration: none;
+}
+ul.links{
+	display: flex;
+	flex-direction: row;
+	list-style: none;
+	font-family: Corbel ;
+	font-size: 20px;
+}
+li .target{
+	text-decoration: none;
+	margin-left: 17px;
+	color: rgb(236,95,102);
+	transition: opacity .2s,-webkit-filter .2s;
+	opacity: .9;
+	-webkit-filter: brightness(80%);
+	position: relative;
+}
+li .target:hover{
+	-webkit-filter: brightness(100%);
+	opacity: 1;
+}
+img{
+	-webkit-user-select: none;
+	width: 30px;
+	height: 30px;
+	margin-top: -5px;
+}
+:focus{
+	outline: none;
+	border: none;	
+}
+.active{
+	width: 31px;
+	height: 3px;
+	background: rgba(236,95,102,.7);
+	position: absolute;
+	top: 45px;
+	left: -100px;
+}
+div.toggle{
+	width: 40px;
+	height: 20px;
+	margin-left: 20px;
+	transition: .5s;
+}
+div.li{
+	width: 83%;
+	height: 3px;
+	margin-top: 2px;
+	background: rgba(236,95,102,1);
+	cursor: pointer;
+}
+._links_hidden{
+	width: 100%;
+	/*//background: rgba(255,255,255,.2);*/
+	cursor: pointer;
+	background: black;
+}
+.s_lik{
+	font-size: 18px;
+	font-family: candara;
+	display: inline-block;
+	width: 100%;
+	color: rgba(236,95,102,1);
+	background: rgba(255,255,255,.1);
+	text-align: center;
+	transition: all 250ms;
+}
+.s_lik:hover{
+	background: rgba(255,255,255,.2	);
+}
+.__linkss{
+	list-style: none;
+}
+.true{
+	display: none;
+}
+.false{
+	display: initial;
+}
+.rotated{
+	transform: rotate(90deg);
+}
+@media screen and (min-width: 1200px) {
+	div.toggle{
+		display: none;
+	}
+	div.container{
+		display: initial;
+	}
+}
+/*
+lg 
+*/
+@media screen and (max-width: 1199px ) and (min-width: 992px){
+	div.toggle{
+		display: none;
+	}
+	div.container{
+		display: initial;
+	}
+/*
+md
+*/}
+@media screen and (max-width: 991px) and (min-width: 768px ) {
+		
+	
+	div.toggle{
+		display: none;
+	}
+	div.container{
+		display: initial;
+	}
+	/*
+small 
+*/}
+@media screen and (max-width: 767px) and (min-width: 566px) 
+{
+	div.toggle{
+		display: initial;
+	}
+	div.container{
+		display:  none;
+	}
+	
+}
+/*
+xs
+*/
+@media screen and (max-width: 565px) {
+	div.toggle{
+		display: none;
+	}
+	div.container{
+		display: initial;
+	}
+}

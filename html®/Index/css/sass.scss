@@ -1,0 +1,12 @@
+body{
+    background: red;
+    div{
+        border: 1px solid red;
+        &:active {
+            border: 1px solid red;
+        }
+    }
+}
+@mixin salom {
+  border: 1px solid red  
+} 

@@ -1,0 +1,90 @@
+body,html{
+	border: none;
+	overflow: hidden;
+}
+:root{
+	--bs: rgba(108,117,125,.5) !important;
+}
+div.container-fluid{
+	height: 100vh;
+	padding-top: 10px;
+}
+div.output{
+	width: 99%;
+	height: 70vh;
+	border-radius: 15px;
+	box-shadow: 0  0 40px rgba(0,0,0,.2);
+	background: var(--bs);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+h1.key{
+	font-family: verdana;
+	font-size: 5em;
+	/*text-shadow: -5px 2px 0px black*/
+}
+div.toolbar{
+	width: 99%;
+	height: 30vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+div.toolbar div.row{
+	width: 100%;
+	border-radius: 15px;
+	background: rgba(108,117,125,.5);
+	min-height: 72px;
+	box-shadow: 0 0 40px rgba(0,0,0,.2	);
+}
+.items{
+	padding: 15px;
+	font-size: 30px;
+	text-align: center;
+}
+input{
+	width: 40%;
+	height: 10.2%;
+	font-size: 50px !important;
+	outline: none;
+	border :none;
+	background: rgba(255,255,254,.2);
+	color: rgba(45,02154,0,.654);
+}
+span{
+	display: inline-block;
+}	
+sub{
+	color: black;
+	font-size: 14px !important
+}
+div.modals{
+	position: absolute;
+	z-index: 54464646545;
+	top: 0;
+	left: 0;
+	padding: 15px;
+}
+::selection{
+	background: rgba(0,255,255,.51)
+}
+div.button{
+	background: transparent;
+	border: none;
+	color: #fff;
+	font-family: candara;
+	background: linear-gradient(to bottom,rgba(42,41,57,.9),rgba(28,29,39,.9));
+	border : 2px solid rgba(200,200,200,.5);
+	box-shadow: 0 0 10px black;
+	cursor: pointer;
+	padding: 6px;
+	user-select: none;
+	-webkit-user-select: none;
+}
+div.button:active{
+		border:2px solid rgba(200,200,200,1) ;
+		background: linear-gradient(to bottom,rgba(60,60,74,1), rgba(28,29,39,1))
+}
+	

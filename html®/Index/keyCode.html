@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>keyCode and some news</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+<style type="text/css">
+	body{
+		background: #151520;
+		display: flex;
+		justify-content:center;
+		align-items: center;
+		min-height: 100vh;
+	}
+	*{
+		transition:transform 500ms;
+	}
+	:focus{
+		outline: none;
+	}
+	input{
+		font-size: 3em;
+		padding: 15px;
+		border: none;
+		background: black;
+		color: white;
+		border-radius: 5px;
+		overflow: hidden;	
+		font-family: "Century Gothic";
+	}
+	input:focus{
+		transition: 500ms;
+		transform: scale(1.1,1.1);
+	}
+</style>
+</head>
+<body>
+	<input type="text" name="" placeholder="Text here">
+	<script type="text/javascript">
+		let input = document.querySelector('input');
+		window.onkeyup= function(e) {
+			if (e.keyCode== 9) {
+			input.value = input.value.replace('elif', `if(true){};else(true){}`)
+
+			}
+		} 
+	</script>
+</body>
+</html>

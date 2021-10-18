@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Navbar with  HTML && CSS && JS</title>
+	<link rel="stylesheet" type="text/css" href="css/navbar.css">
+</head>
+<style type="text/css">
+
+
+</style>
+<body>
+<div class="_links_hidden true">
+			<ul class="__linkss">
+				<li><a href="#" class="s_lik">Home 	</a></li>
+				<li><a href="#" class="s_lik">About</a></li>
+				<li><a href="#" class="s_lik">Documentation</a></li>
+				<li><a href="#" class="s_lik">Service</a></li>
+				<li><a href="#" class="s_lik">Sign up</a></li>
+
+			</ul>
+		</div>
+	<nav class="nav">
+		<div class="container">
+			<ul class="links"><span class="active"></span>
+				
+				<li><a href="#" class="target">Home 	</a></li>
+				<li><a href="#" class="target">About</a></li>
+				<li><a href="#" class="target">Documentation</a></li>
+				<li><a href="#" class="target">Service</a></li>
+				<li><a href="#" class="target">Sign up</a></li>
+			</ul>
+		</div>
+			<div class="toggle">
+			<div class="li li-1"></div>
+			<div class="li li-2"></div>
+			<div class="li li-3"></div>
+		</div>
+		
+
+	</nav>
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript">
+		$(function() {console.error('Happy hacking :)')
+			let a = $('.target');
+			for(let l = 0; l < a.length; l++){
+				a.eq(l).mousemove(function(e) {
+					$('span').css({
+						transition : '.3s',
+						left: a.eq(l).position().left+17+'px',
+						width: a.eq(l).width()
+					})
+				})
+			}
+			$('.toggle').click(function() {
+				$('._links_hidden').slideToggle(300)
+			})
+			$(window).on({
+			 	resize: function() {
+			 		$('._links_hidden').slideUp(200);
+				}
+			})
+
+		})
+	</script>
+	
+
+	<script type="text/javascript">
+		/// true //javascript
+		let links = document.querySelectorAll('a');
+		for(let i = 0; i < links.length; i++) {
+			links[i].onclick = function() {
+				if (i==0) {window.open('css')}
+				else if (i==5) {window.open('js','new	')}
+				else if (i==1) {window.open('css','_blank')}
+				else if (i==6) {window.open('js')}
+				else if (i==2) {window.open('css')}
+				else if (i==7) {window.open('js')}
+				else if (i==3) {window.open('css')}
+				else if (i==8) {window.open('js')}
+				else if (i==4) {window.open('css')}
+				else if (i==9) {window.open('js')}
+
+			}
+		} 
+		
+	</script>
+</body>
+</html>

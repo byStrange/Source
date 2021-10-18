@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../node_modules/fullpage.js/dist/fullpage.css">
+    <style>
+        body{
+            background-color: red;
+        }
+        div.fll{
+            width: 100%;
+            height: 100vh;
+            background-color: red;
+        }
+        .blue{
+            background-color: blue !important;
+        }
+        .red{
+            background-color: wheat !important;
+        }
+        .black{
+            background-color: black !important;
+        }
+    </style>
+</head>
+<body>
+    <div id="fullpage">
+        <div class="section">
+            <div class="fll"></div>
+        </div>
+        <div class="section">
+            <div class="slide">
+                <div class="fll black"></div>
+            </div>
+            <div class="slide"><div class="fll blue"></div></div>
+            <div class="slide"><div class="fll red"></div></div>
+        </div>
+        <div class="section"><div class="fll"></div></div>
+    </div>
+        <script src="../node_modules/fullpage.js/vendors/scrolloverflow.js"></script>
+        <script src="../node_modules/fullpage.js//dist/fullpage.js"></script>
+    <script>
+       fullpage('#fullpage', {
+	anchors:['firstPage', 'secondPage', 'thirdpage'],
+	showActiveTooltip: true,
+	scrollingSpeed: 400,
+	dragAndMove: true,
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	user-select: none;
+}
+:root{
+	--border: 1px solid red;
+	--borderBold: 5px solid saddlebrown;
+	--bColor: rgba(40,41,35,1);
+	--vol: #450ac5;
+
+}
+body{
+	background: var(--bColor);
+	width: 100%;
+	min-height: 110%;
+}
+div.GameContent{
+	width: 100%;
+	height: 100vh;
+	border: var(--border);
+}
+div.RocketContent{
+	width: 100px;
+	height: 150px;
+	border: var(--borderBold);
+	margin-left: -40px;
+	position: absolute;
+/*	background-image: url('../images/backbutton.png');
+	background-repeat: no-repeat;*/
+}
+div.Rocket{
+	position: absolute;
+	width: 100%;
+	height: 80%;
+	background: var(--vol) ;
+	z-index: 2;
+}
+div.LosenContent{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	/*position: absolute;*/	
+	margin-top: 50px;
+	z-index: 10;
+}
+div.lose{
+	width: 250px;
+	background: white;
+	height: 300px;
+	border: var(--border);
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	z-index: 210;
+
+}
+div.wincontent{
+	display: none;
+}
+div.Walls{
+	position: absolute;
+	border: var(--borderBold);
+	background: red;
+	animation: pastga 5s linear infinite;
+	z-index: 1;
+	
+}
+@keyframes pastga{
+	from{
+		top: -40px;
+	}
+	to{
+		top: 900px;
+		
+	}
+}

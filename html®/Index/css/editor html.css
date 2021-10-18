@@ -1,0 +1,122 @@
+*{
+	margin: 0;
+	padding: 0;
+
+}
+body{
+	background:white;
+	overflow: hidden;
+}
+div.input-group{
+	width: 100%;
+	height: 101vh;
+	background:transparent;
+}
+textarea{
+	display: block;
+	height: 100%;
+	color: rgb(236,95,102) !important;
+	background: rgb(52,61,70) !important;
+	/*background: black !important;*/
+	/*color: white !important;*/
+}
+textarea::selection{
+	background: rgba(78,90,101,.6);
+}
+textarea::-webkit-scrollbar{
+	width: 5px;
+	background: rgb(67,76,84);
+}
+textarea::-webkit-scrollbar-thumb{
+	background: rgb(95,102,109);
+}
+div.output{
+	display: inline-block;
+	position: relative;
+	width: 50%;
+	height: 100vh;
+	top: 8px;
+	left: 8px;	
+	word-wrap: break-word;
+}
+div.text-control{
+	min-width: 0;
+	min-height: 0;
+	position: relative;
+	padding: 5px;
+	background: rgba(1,10,27,1);
+}
+div.text-panel{
+	background: rgba(1,10,27,1);
+}
+
+.form-control:focus{
+	box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0);
+}
+.monokai{
+	color: rgb(249,35,114) !important;
+	background: rgb(40,41,35) !important;
+} 
+.Dark{
+	color: white !important;
+	background: black !important;
+}
+.Light {
+	color: black !important;
+	background: white !important;
+}
+.Breakers{
+	color: rgb(236,95,102) !important;
+	background: rgb(52,61,70) !important;
+}
+select{
+	-webkit-appearance : none;
+}
+button{
+	margin-bottom: 10px;
+}
+div.div-modal-box{
+	width: 100%;
+	height: 100vh;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 2416546;
+	background: rgba(0,0,0,.95);
+	padding-top: 5%;
+}
+div.modal-content{
+	width: 35%;
+	min-height: 250px; 
+	padding: 15px;
+	animation: hides 700ms 3000ms ease;
+	box-shadow: 0 0 30px rgba(255,255,255,.4)
+	transition: 500ms;
+	position: absolute;
+	top: -1000px;
+	left: 50%;
+	transform: translate(-50%,0);
+	animation: show 2000ms ease ;
+}
+@keyframes show{
+	from{
+		top: -1000px
+	}
+	to{
+		top: 30px;
+	}
+}
+@keyframes hide {
+	from{
+		transform: scale(1,1);
+	}
+	to{
+		transform: scale(.8,.8);
+	}
+}
+kbd{
+	transition: 500ms;
+}
+kbd:active{
+	transform: scale(.97,.97);
+}

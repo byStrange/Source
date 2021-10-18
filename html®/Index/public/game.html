@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Game</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			background: #151515;
+			overflow: hidden;	
+		}
+		div.container{
+			width: 100vw;
+			height: 100vh;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-direction: column;
+		}
+		div.map{
+			position: relative !important;
+			width: 50%;
+			height: 50%;
+			background:#343D46; 
+			overflow: hidden;
+			transform: scale(1.5,1);
+
+		}
+		div.block{
+			width: 80px;
+			height: 20px;
+			background: rgba(255,255,255,.1);
+		}
+		div.zombie{
+			width: 40px;
+			height: 60px;
+			float: right;
+			background: rgb(12%,45%,50%)
+		}
+		.result{
+			position: absolute;
+			top: 50%;
+			left:50%;
+			transform: translate(-50%,-50%) ;
+			font-size: 8em;
+			font-family: Harlow Solid Italic;
+		}
+		.info{
+			font-family: Verdana;
+			position: absolute;
+			top: 20%;
+			left: 50%;
+			transform: translate(-50%,-50%);
+			color: #151515;
+			text-shadow: 1px 0 0 black, 0px -1px 0 black,-1px ;
+			width: 70%;
+		}
+		kbd{
+			background: #0a0c0d;
+			color: #fff;
+			padding: 5px;
+			border-radius: 5px;
+			font-family: monospace;
+			font-size: 20px;
+			box-sizing: border-box;
+			margin-bottom: 15px;
+		}
+	</style>
+</head>
+<body>
+	<h1 class="info">Press <kbd>up</kbd> and <kbd>down</kbd> to move. Press <kbd>right</kbd> to hit</h1>
+		<div class="container">	
+			<div class="map">
+				<div class="block"></div>
+				<div class="zombie"></div>
+		</div>
+		<h1 class="result"></h1>
+		</div>
+		<script type="text/javascript " src="../js/jquery.js">	</script>
+		<script type="text/javascript" src="../../source/node_modules/animejs/lib/anime.js"></script>
+		<script type="text/javascript">
+			anime({
+				targets: '.zombie',
+					translateY: function() {return anime.random(-1,Math.round($('.map').css('width').replace('px',''))-200)}
+			})
+			// $(function(){
+			// 	let b
+			// 	function checkValue() {
+			// 		b = $('input').val();
+			// 	}
+			// 	setInterval(checkValue,100);
+			// 	// anime({
+			// 	// 	targets: ".block",
+			// 	// 	translateY:350,
+			// 	// 	translateX:window.innerWidth/2-50 
+			// 	// })
+			// 	$(window).on({
+			// 		keydown: function(e) {
+							let topp = Math.round($('.block').css('top').replace('px', '')),
+								leftt= Math.round($('.block').css('left').replace('px','')),
+								maxWidth = Math.round($('.map').css('width').replace('px','')),
+								maxHeight = Math.round($('.map').css('height').replace('px',''));
+			// 					console.log(top,maxHeight,left,maxWidth)
+			// 					console.log(top>maxHeight-50/*||left>=maxWidth*/)
+			// 			if (e.key=="ArrowUp") {
+			// 				anime({
+			// 					targets:".block",
+			// 					top: `-=${b}`
+			// 				})
+			// 			}
+			// 				// else if () {alert('ou of range')}
+			// 			else if (e.key=="ArrowDown") {
+			// 				anime({
+			// 					targets:".block",
+			// 					top: `+=${b}`
+			// 				})
+			// 			}
+			// 			else if (e.key=="ArrowLeft") {
+			// 				anime({
+			// 					targets:'.block',
+			// 					left: `-=${b}`
+			// 				})
+			// 			}
+
+			// 			else if (e.key=="ArrowRight") {
+			// 				anime({
+			// 					targets:".block",
+			// 					left: `+=${b}`
+			// 				})
+			// 			}
+					
+			// 		}
+			// 	})			
+			// })
+			$(function(){
+				$('.result').css({
+					color: `rgba(${Math.round(Math.random()*255)}, ${Math.floor(Math.random()*255)},${Math.round(Math.random()*255)} ,1)`
+				})
+				$('.zombie').css({transform:`translateY(${Math.random()*300	})`})
+								function result(a) {
+					let t = a.style.transform
+					if (t.length < 16) {
+						 return anime.random(19,60)
+					}
+					else {
+						let resultation = t.slice(11,16);
+						return Math.round(resultation)
+					}
+				}
+				function ress(a) {
+					let t = a.style.transform;
+					return t.slice(11,16)
+				}
+				$(window).on({
+					keyup: function(e) {
+				// 		anime({
+				// 	targets:'.left',
+				// 	translateX: '-=400',
+				// 	duration:5000,
+				// 	loop:true
+				// })
+				// anime({
+				// 	targets: '.right',
+				// 	translateX:'+=400',
+				// 	duration:5000,
+
+				// 	loop:true
+				// })
+				// anime({
+				// 	targets: ".top",
+				// 	translateY:'-=400',
+				// 	duration:5000,
+
+				// 	loop:true
+				// })
+				// anime({
+				// 	targets:'.bottom',
+				// 	translateY: '+=400',
+				// 	duration:5000,
+
+				// 	loop:true
+				// })
+						if (e.key=="ArrowUp") {
+							anime({
+								targets: '.block',
+								translateY: `-=${maxHeight}`,
+								duration:5000,
+							})
+						}
+						else if (e.key=="ArrowDown") {
+							anime({
+								targets: '.block',
+								duration:5000, 
+								translateY: `+=	${maxHeight}`
+							})
+						}
+						else if (e.key=="ArrowRight") {
+								anime.timeline()
+								.add({
+									targets: '.block',
+									translateX:`${maxWidth}`,
+
+								})
+								.add({
+									targets:'.block',
+									translateY: 0
+								})
+								.add({
+									targets: '.zombie',
+									translateY: function() {return anime.random(-1,maxWidth-200)}
+								})
+								let res = document.querySelector('.block');
+								let winword = ['Great', 'Good job','Exxelent', 'wow','respect']
+								let loseword = ['good ', `don't worry`, `try again`, 'never give up'];
+								let random = anime.random(0,4)
+								if (result(res) > anime.random($('.zombie').position().top,80)) {
+									
+									console.log(true);
+									$('.result').text(winword[random])
+									anime.timeline().add({
+										targets:'.result',
+										scale: [0,1],
+										opacity: [0,1],
+										translateY: anime.random(0,100),
+										translateX: anime.random(0,100),
+										rotate: anime.random(0,30)
+									})
+									.add({
+										targets: ".result",
+										scale: [1,0],
+										opacity: [1,0]
+									})
+								}
+								else {
+									alert(result(res)/*, anime.random($('.zombie').position().top,80)*/)
+									$('.result').text(loseword[random])
+
+										anime.timeline().add({
+										targets:'.result',
+										scale: [0,1],
+										opacity: [0,1],
+										translateY: anime.random(0,100),
+										translateX: anime.random(0,100),
+										rotate: anime.random(0,30)
+									})
+									.add({
+										targets: ".result",
+										scale: [1,0],
+										opacity: [1,0]
+									})
+								}
+								setTimeout(function() {location.reload()}, 1000);
+						}
+						else if (e.key==0) {
+								anime({
+									targets:'.block',
+									translateY: 0,
+									translateX: 0
+								})
+						}
+					}
+				})			
+			})
+		</script>
+</body>
+</html>

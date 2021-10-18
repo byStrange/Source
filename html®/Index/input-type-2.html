@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/type-2-input.css">
+</head>
+<style type="text/css">
+	ove{
+		overflow: ;
+	}
+</style>
+<body data-link="s">
+	<script>
+		function createShadow(el, text) {
+				const shadow = el.attachShadow({mode: 'open'})
+				if(text.isHtml) {
+					shadow.innerHTML = text.textContent
+				}
+				else {
+					shadow.innerText   = text.textContent
+				}
+		}
+	</script>
+	<show-hello name="s"></show-hello>
+	<new-tag description="Salom"></new-tag>
+
+</body>
+</html>

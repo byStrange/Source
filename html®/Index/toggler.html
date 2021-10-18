@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	
+	<script>
+		customElements.define('show-hello', class extends HTMLElement {
+  connectedCallback() {
+    const shadow = this.attachShadow({mode: 'closed'});
+   if(this.getAttribute('name')) {
+   	 shadow.innerHTML = `<p>
+      Hello, ${this.getAttribute('name')}
+    </p>`;
+   }
+   else {
+   	 shadow.innerHTML = `<p>
+      Hello, Unknown Man
+    </p>` + '<input type="text">';
+   }
+  }
+});
+	</script>
+	<show-hello></show-hello>
+	<script type="text/javascript">
+		a = document.querySelector('input');
+		console.log(a)
+	</script>
+</body>
+</html>

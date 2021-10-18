@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            overflow: hidden;
+        }
+        .el {
+            display: block;
+            width: 20px;
+            height: 20px;
+            background: black;
+            border: 1px solid white;
+            margin-bottom: 5px;
+        }
+
+        .cont {
+            position: relative;
+        }
+
+        .cont2 {
+            height: 100vh;
+            width: 100%;
+        }
+
+        .elem {
+            display: flex;
+            width: 15px;
+            height: 15px;
+            background-color: red;
+            border: 1px solid white;
+            margin-bottom: 6px;
+        }
+    </style>
+</head>
+
+<body>
+    
+    <div class="cont">
+        <span class="el" data-x="10"></span>
+        <span class="el" data-x="90"></span>
+        <span class="el" data-x="190"></span>
+    </div>
+    <!-- <div class="cont2">
+        <span class="elem"></span>
+        <span class="elem"></span>
+        <span class="elem"></span>
+    </div> -->
+    </div>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script> -->
+    <script src="../node_modules/animejs/lib/anime.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/3.3.0/masonry.pkgd.js"
+        integrity="sha512-ThHSN8bIATqYEaG5EYYCbui+1MGzRtRI4yQxFVqrQO7FsfC8zlB3LwtuleTByVyo4YibiwA2JC5jk3MzkgqGmQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+    <script>
+        window.onclick = function() {
+          anime()
+        }
+    anime({
+            targets: ['.cont .el'],
+            translateX: {
+                value: function (el) {
+                    let dataX = el.getAttribute('data-x');
+                    return anime.random(0, dataX + 1)
+                },
+            },
+            translateY: {
+                value: function (el) {
+                    let dataX = el.getAttribute('data-x');
+                    return anime.random(45, dataX)
+                },
+
+            },
+            rotate: {
+                value: anime.stagger([-360, 360]),
+                duration: 1800
+            },
+            scale: {
+                value: anime.random(3, 4),
+            },
+            borderRadius: {
+                value: function () { return ['50%', anime.random(10, 35) + '%'] },
+                duration: 250
+            },
+            delay: anime.stagger(100, { easing: 'easeOutQuad' }),
+        });
+        //     anime({
+        //   targets: '.function-based-params-demo .el',
+        //   translateX: 270,
+        //   direction: 'alternate',
+        //   loop: true,
+        //   delay: function(el, i, l) {
+        //     return i * 100;
+        //   },
+        //   endDelay: function(el, i, l) {
+        //     return (l - i) * 100;
+        //   }
+        // });
+        anime({
+            targets: ['.cont2 .elem'],
+            translateX: 270,
+            delay: anime.stagger(100)
+
+        });
+    </script>
+</body>
+
+</html>

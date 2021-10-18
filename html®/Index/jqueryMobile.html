@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Jquery Mobile</title>
+	<link rel="stylesheet" href="../source/jquery.mobile-1.4.5/demos/css/themes/default/jquery.mobile-1.4.5.min.css">
+	<link rel="stylesheet" href="../source/jquery.mobile-1.4.5/demos/_assets/css/jqm-demos.css">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
+	<script src="../source/jquery.mobile-1.4.5/demos/js/jquery.js"></script>
+	<script src="../source/jquery.mobile-1.4.5/demos/_assets/js/index.js"></script>
+	<script src="../source/jquery.mobile-1.4.5/demos/	js/jquery.mobile-1.4.5.min.js"></script>
+</head>
+<body>
+	<button>
+		<i class="ui-btn ui-shadow ui-corner-all ui-icon-check ui-btn-icon-notext ui-btn-inline"></i>
+	</button>
+	<label>Select</label>
+				    <select data-role="flipswitch">
+                        <option value="off">Off</option>
+                        <option value="on">On</option>
+                    </select>
+                   <label>select</label>
+                    <select name="flip3" id="flip3" data-role="slider">
+						<option value="off">Off</option>
+						<option value="on">On</option>
+					</select>
+					<div data-role="rangeslider">
+                        <label for="range-1a" class="trueValue">Rangeslider:</label> 
+                        <input type="range" name="range-1a" id="range-1a" min="0" max="100" value="40">
+                        <input type="range" name="range-1a" id="range-1a" min="0" max="100" value="80">
+                    </div>
+					<script type="text/javascript">
+						$(function() {
+							$(window).on({
+								swipeleft: function() {
+									alert()
+								}
+							})
+							$('input').on({
+								change: function(el) {
+									console.log()
+									$('.trueValue').text($('input').eq(1).val()-$('input').eq(0	).val())
+								}
+							})
+						})
+					</script>
+					<script type="text/javascript">
+						
+					</script>
+</body>
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="css/editor html.css">
+	<link rel="stylesheet" type="text/css" href="css/ss.css">
+</head>
+<body>			
+		<div class="input-group">
+			<div class="text-control">
+			<div class="text-panel">
+				<br>
+				<div class="play btn btn-outline-success"  >play</div>
+				<br> <br>
+				<div class="reset btn btn-outline-success">clear</div>
+				<br> <br>
+				<div class="btn btn-outline-success" onclick="copy()">copy</div>
+				<!-- <div class="live btn btn-outline-danger ">
+				<label for="check" class="form-label ">Live</label>   <input type="checkbox" class="custom-checkbox-2" id="check"></div><br> <br> -->
+				<!-- <select id="select" class="btn btn-outline-success" >
+				<option style="color :red;">Themes</option>
+				<option>Dark</option>
+				<option>Light</option>
+				<option>Monokai</option>
+				<option>Mariana</option>
+			</select> -->
+			</div> 
+			
+		</div>
+			<textarea type="text" name="" class="form-control" placeholder="Welcome to code"></textarea>
+			<div class="output"></div>
+		</div>				
+		<div class=""></div>
+		<audio src="" autoplay=""></audio>
+		<div class="div-modal-box">
+			<div class="modal-content " >
+				<sub class="text-danger">Code editor's rules</sub>
+				<h1 class="text-warning">Notice!</h1>
+				<h5 class="text-secondary">You don't have to use strings (""), when writing attributes value</h5>
+				<kbd class="first-kbd"></kbd> <br>
+				<h5 class="text-secondary">Before all snippets put '$' sign and hit tab</h5>
+				<kbd><del>html</del>      <span class="text-muted">tab don't use like that <--</span> <br>
+				$html 		<span class="text-muted">tab It's correct or</span><br>
+				$div   	<span class="text-muted">tab</span></kbd> <br>
+				<h5 class="text-secondary">And if you want snippets with their <span class="text-success">.class </span>or <span class="text-info">id#</span></h5>
+				<kbd>
+					$div. 		<span class="text-muted">tab =></span> <span class="k-2"></span><br>
+					$div#		<span class="text-muted">tab =></span> <span class="k-3"></span>
+				</kbd>
+				<h5>Please do'nt use <span class="k-4 text-danger"></span> tag use only between&nbsp&nbsp<span class="k-5 text-danger"></span> tags </h5>
+				<label for="check" class="text-primary">I agree Terms of condition
+			          &nbsp&nbsp	<input type="checkbox" name="" id="check">  
+				</label>
+			<button class="btn btn-outline-success start">Ok Start</button>
+
+			</div>
+		</div>
+</body>
+<script type="text/javascript">
+	let input = document.querySelector(`[type=text]`);
+	let play = document.querySelector(`.play`);
+	let output = document.querySelector(`.output`);
+	let clear = document.querySelector(`.reset`);
+	clear.onclick = __trueCleaner
+   function __trueCleaner() {
+   	input.value = ``
+	}
+// 	function __falseCleaner() {
+// 		input.value = `<!DOCTYPE html>
+// <html>
+// <head>
+// 	<title></title>
+// </head>
+// <body>
+
+// </body>
+// </html>`
+// 	}
+	// document.querySelector(`[type=checkbox]`).onclick = function() {
+	// 		document.querySelector(`.live`).classList.toggle(`btn-outline-danger`);
+	// 		document.querySelector(`.live`).classList.toggle(`btn-outline-success`)
+	// }
+	input.onkeyup = function() {
+		// document.querySelector(`audio`).src = `music/clickerx.wav`
+		// if (document.querySelector(`[type=checkbox]`).checked ) {
+		// 	input.oninput = live
+			
+		// }
+		// else if(document.querySelector(`[type=checkbox]`).checked === false){
+		// 	input.oninput = null
+		// 	play.onclick = live
+		// }
+		play.onclick = live
+	}
+	function live() {
+		output.innerHTML = input.value
+	}
+	// function CHECK() {
+	// 	if (input.value == ``) {
+	// 		clear.innerText = `Html 5`
+	// 	}
+	// 	else if (input.value !== ``) {
+	// 		clear.innerText = `clear`
+	// 	}
+
+	// }
+	// setInterval(CHECK, 100)
+	// document.querySelector(`select`).onchange = function () {
+	// 	if (this.value == `Monokai`) {
+	// 		input.classList.remove(`Breakers`,`Dark`,`Light`)
+	// 		input.classList.add(`monokai`)
+	// 	}
+	// 	else if(this.value == `Dark`) {
+	// 		input.classList.remove(`Breakers`,`monokai`,`Light`)
+
+	// 		input.classList.add(`Dark`)
+	// 	}
+	// 	else if (this.value == `Light`) {
+	// 		input.classList.remove(`Breakers`,`Dark`,`monokai`)
+
+	// 		input.classList.add(`Light`)
+	// 	}
+	// 	else if (this.value == `Mariana`) {
+	// 		input.classList.remove(`monokai`,`Dark`,`Light`)
+
+	// 		input.classList.add(`Breakers`)
+	// 	}
+	// }
+	document.querySelector('.first-kbd').innerText = `<div class=className>...</div>
+	`;
+	document.querySelector('.k-2').innerText = `<div class="">...</div>`;
+	document.querySelector('.k-3').innerText = `<div id="">...</div>`;
+	document.querySelector('.k-4').innerText = `<link>`;
+	document
+	.querySelector('.k-5')
+	.innerText = ` <style></style>`
+	
+		function copy() {
+			input.select();
+			document.execCommand(`copy`)
+		}
+
+		function that() {
+			document.querySelector('.modal-content')
+			.style
+			.top = `30px`		
+		}
+		setTimeout(that, 2000);
+		
+</script>
+<script type="text/javascript" src="js/snippets.js"></script>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript">
+	$(function() {
+				$('.start').click(function() {
+			$(this).parent().hide(1700);
+			setTimeout(call, 1700);
+			call()
+		})
+		function call() {
+
+			$('.div-modal-box').animate({
+				top: '-100vh',
+				left: '100vh',
+				display : 'none'
+			},1700)
+			$('.div-modal-box').css({
+				transform : 'scale(.8,.8)'
+			})
+		}
+		// $('.div-modal-box').fadeOut(3700)
+	})
+</script>
+</html>	

@@ -1,0 +1,12 @@
+body {
+  background: red;
+}
+
+body div {
+  border: 1px solid red;
+}
+
+body div:active {
+  border: 1px solid red;
+}
+/*# sourceMappingURL=sass.css.map */

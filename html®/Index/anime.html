@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Anime Js Animation</title>
+	<style type="text/css">
+		body{
+			background: #0e1623;
+			overflow: hidden;
+		}
+		section{
+			width: 100vw;
+			height: 100vh;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		section h1{
+			font-size: 5em;
+			font-family: Verdana;
+			color: #00fe77;
+			-webkit-box-reflect: below -0.35em linear-gradient(transparent 0%, transparent 10%, rgba(0,254,119,.2));
+			text-shadow:  4px 1px 0 gray
+		}
+		span{
+			position: relative;
+			display: inline-block;
+		}
+	</style>
+</head>
+<body>
+
+
+	<section>
+		<h1 class="text">Anime Js Animation</h1>
+	</section>
+
+	<script type="text/javascript" src="../source/node_modules/animejs/lib/anime.js"></script>
+	<script type="text/javascript">
+		const text = document.querySelector('.text');
+		text.innerHTML = text.textContent.replace(/\S/g, "<span>$&</span>");
+		anime.timeline({
+			loop:true
+		})
+		.add({
+			targets: '.text span',
+			translateY: [ -600 , 0],
+			scale: [ 10 , 1 ],
+			opacity: [ 0, 1 ],
+			easing : 'easeOutExpo',
+			duration: 800,
+			delay: anime.stagger(100)
+		})
+		.add({
+			targets: '.text span',
+			translateX: [ 0 , -1000],
+			opacity: [ 1, 0 ],
+			duration: 2000,
+			delay: anime.stagger(100)
+		})
+		.add({
+			targets: '.text span',
+			translateX: [ 1000 , 0],
+			opacity: [ 0 , 1 ],
+			easing : 'easeOutExpo',
+			duration: 2000,
+			delay: anime.stagger(100)
+		})
+		.add({
+			targets: '.text span',
+			translateY: [ 0 , -300],
+			scale: [ 1 , 5 ],
+			opacity: [ 1 , .0 ],
+			duration: 2000,
+			delay: anime.stagger(100)
+		})
+		</script>
+</body>
+</html>

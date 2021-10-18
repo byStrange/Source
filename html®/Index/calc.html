@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Calculator</title>
+	<link rel="stylesheet" href="file:///C:/Documents%20and%20Settings/User.HOME-EAECCB864A/%D0%A0%D0%B0%D0%B1%D0%BE%D1%87%D0%B8%D0%B9%20%D1%81%D1%82%D0%BE%D0%BB/html%C2%AE/source/jquery.mobile-1.4.5/demos/css/themes/default/jquery.mobile.icons.min.css">
+	<link rel="stylesheet" href="file:///C:/Documents%20and%20Settings/User.HOME-EAECCB864A/%D0%A0%D0%B0%D0%B1%D0%BE%D1%87%D0%B8%D0%B9%20%D1%81%D1%82%D0%BE%D0%BB/html%C2%AE/source/jquery.mobile-1.4.5/demos/css/themes/default/jquery.mobile.structure-1.4.5.min.css">
+	<link rel="stylesheet" type="text/css" href="file:///C:/Documents%20and%20Settings/User.HOME-EAECCB864A/%D0%A0%D0%B0%D0%B1%D0%BE%D1%87%D0%B8%D0%B9%20%D1%81%D1%82%D0%BE%D0%BB/html%C2%AE/source/jquery.mobile-1.4.5/demos/theme-classic/theme-classic.css">
+	<link rel="stylesheet" type="text/css" href="css/calc.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="icon" href="images/javas.png" sizes="32x32" type="image/svg">
+</head>
+<body class="bg-light">
+	
+	<div class="div">
+	<div class="settings "  title="Settings">
+		<div class="line1"></div>
+		<div class="line2"></div>
+		<div class="line3"></div>
+	</div>
+	<div class="theme">
+ 		<select name="flip3" id="flip3" data-role="slider">
+			<option value="dark">dark</option>
+			<option value="light">light</option>
+
+		</select>
+
+	</div>
+	</div>
+	<div class="hiddenContent" id="hiddenContent">
+		<fieldset class="fieldset">
+			<legend class="legend text-danger ">Settings</legend>
+		<label for="me text-muted">Font size</label>
+		<select id="me" title="at 'px'" class="" >
+			<option value="70px">default</option>
+			<option value="40px">40</option>
+			<option value="60px">60</option>
+			<option value="80px">80</option>
+			<option value="100px">100</option>	
+		</select><br><br>
+		<label for="circle">Font family</label>
+		<select id="circle">
+			<option value="Gill Sans MT">default</option>
+			<option>Verdana</option>
+			<option>Monospace</option>
+			<option>Candara</option>
+			<option>Copperplate Gothic Bold</option>
+			<option>Eras Medium ITC</option>
+			<option>Harlow Solid Italic</option>
+			<option>Corbel</option>
+			<option>MS Outlook</option>
+			<option>symbol</option>
+		</select> <br> <br>
+		<div class="custom-control custom-checkbox mr-sm-2">
+        <input type="checkbox" class="custom-control-input" id="customControlAutosizing" checked="" onchange="chekc()">
+        <label class="custom-control-label" for="customControlAutosizing">Number borders</label>
+      </div>		 
+		<button class="submit btn btn-outline-secondary">Save</button>
+		<button class="reset btn btn-outline-primary">Reset</button></fieldset>
+	</div>
+
+	<div class="contentBox">
+		<div class="inputcontent">
+			<input type="text" name="" id="in1" >
+		</div>		
+		<div class="Allsymbols">
+			<div class="row">
+			<div onclick="document.getElementById('in1').value=''" class="r red"><p>C</p></div>
+			<div onclick="document.getElementById('in1').value+='7'"  class="r"><p>7</p></div>
+			<div onclick="document.getElementById('in1').value+='8'" class="r"><p>8</p></div>
+			<div onclick="document.getElementById('in1').value+='9'" class="r"><p>9</p></div>
+			<div onclick="document.getElementById('in1').value+='/'" class="r symbol"><p>/</p></div>
+			</div>
+			<div class="row">
+			<div onclick="document.getElementById('in1').value+='4'" class="r"><p>4</p></div>
+			<div onclick="document.getElementById('in1').value+='5'" class="r"><p>5</p></div>
+			<div onclick="document.getElementById('in1').value+='6'" class="r"><p>6</p></div>
+			<div onclick="document.getElementById('in1').value+='*'" class="r symbol"><p>*</p></div>
+			<div onclick="document.getElementById('in1').value+='%'" class="r symbol"><p>%</p></div>
+			</div>
+			<div class="row">
+			<div onclick="document.getElementById('in1').value+='1'" class="r"><p>1</p></div> 
+			<div onclick="document.getElementById('in1').value+='2'" class="r"><p>2</p></div>
+			<div onclick="document.getElementById('in1').value+='3'" class="r"><p>3</p></div>
+			<div onclick="document.getElementById('in1').value+='-'" class="r symbol"><p>-</p></div>
+			<div onclick="document.getElementById('in1').value = 1/document.getElementById('in1').value" class="r symbol"><p>1/x</p></div> 
+			</div>
+			<div class="row">
+				<div onclick="document.getElementById('in1').value+='0'" class="r"><p>0</p></div> 
+			<div onclick="document.getElementById('in1').value=Math.sqrt(document.getElementById('in1').value	)" class="r sqrt"><p>sqrt</p></div>
+			<div onclick="document.getElementById('in1').value+='+'" class="r symbol"><p>+</p></div>
+			<div onclick="document.getElementById('in1').value+='.'" class="r symbol"><p>,</p></div>
+			<div onclick="document.getElementById('in1').value = eval(document.getElementById('in1').value)" class="r equal	"><p>=</p></div>	
+			</div>
+
+		</div>
+	</div>
+	
+</body>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/calc.js"></script>
+</html>
+
+	    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
+		<script src="../source/jquery.mobile-1.4.5/demos/js/jquery.js"></script>
+		<script src="../source/jquery.mobile-1.4.5/demos/js/jquery.mobile-1.4.5.min.js"></script>
+
+<script type="text/javascript">
+	$('div.div').css({
+		background : 'rgba(0,0,0,.8)'
+	})
+		($('select#flip3')[0].onchange=function() {
+	$('.ui-page')[0].classList.toggle('shined');
+
+		if (this.value=="light") {
+	$('.ui-page')[0].classList.add('ui-page-theme-c');
+	$('div.div').css({
+		background : 'rgba(255,255,255,.1)'
+	})
+	$('.contentBox').css({
+		background : '#fff'
+	})
+
+		}
+		else if(this.value=="dark"){
+	$('.ui-page')[0].classList.remove('ui-page-theme-c')
+	$('.ui-page')[0].classList.add('ui-page-theme-a')				
+$('div.div').css({
+		background : 'rgba(0,0,0,.8)'
+	})
+$('.contentBox').css({
+	background: '#303030'
+})
+		}
+	})
+</script>
+
+

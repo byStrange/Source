@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Background generator</title>
+	<link rel="icon" href="images/javas.png" sizes="32x32" type="image/svg">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<style type="text/css">
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		body{
+			overflow: hidden;
+		}
+		span{
+			position: absolute;
+			display: inline-block;
+		
+			transition:  .6s;
+			z-index: -1;
+			box-shadow:  0 0 20px 5px black; 
+			opacity: 0.9;			/*border: 5px solid ;
+			border-image-source: linear-gradient(black, white);
+			border-image-slice: 1;*/
+		}
+		div{
+			display: flex;
+			height: 100vh;
+			align-items: center;
+			justify-content: center;
+		}
+		:focus{
+			outline: none;
+		}
+	</style>
+</head>
+<body>	
+			<div><button onclick="clc()" class="btn btn-outline-primary">Generate</button></div>
+
+<script type="text/javascript">
+
+		// body...
+	function clc(argument) {
+		// body...
+				let spans = document.querySelectorAll('span')
+				for(let i = 0; i < spans.length ; i++) {
+						let winh = window.innerHeight
+			let winw = window.innerWidth
+					spans[i].style.top  = Math.random()*winh+'px';
+					spans[i].style.left = Math.random() * winw + 'px';
+					spans[i].style.width = Math.random() * 400 + 'px ';
+			spans[i].style.height = Math.random() * 400 + 'px ';
+// let arr = ['#FFA500','black', ''];
+// 			spans[i].style.background = arr[Math.floor(Math.random()*2)]
+				}
+
+	}
+		for(let i = 0; i <= 100	; i++) {
+			let winh = window.innerHeight
+			let winw = window.innerWidth
+			let  ss = document.createElement('span');
+			document.body.appendChild(ss);
+			ss.style.width = Math.random() * 300 + 'px ';
+			ss.style.height = Math.random() * 300 + 'px ';
+			let arr = ['#FFA500','black', ''];
+			ss.style.background = arr[Math.floor(Math.random()*2)]
+				ss.style.top = Math.random()*winh+'px';
+			ss.style.left = Math.random() * winw + 'px';
+		console.log('Successfully created 101 blocks')
+		}
+		
+</script>
+</body>
+</html>

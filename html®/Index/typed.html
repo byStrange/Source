@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Typed js</title>
+</head>
+<body class="bg-dark">
+	<link rel="stylesheet" type="text/css" href="css/ss.css">
+	<style type="text/css">
+		*{
+			-webkit-user-select: none;
+		}
+		.h1{
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%,-50%);
+			padding: 10px;
+			background: rgba(255,255,255,.2);
+			color: rgba(0,0,0,1)
+		}
+	</style>
+	<h1 class="h1"><span class="span"></span></h1>
+<script type="text/javascript" src="typed.js-master/typed.js-master/lib/typed.js"></script>
+<script type="text/javascript">
+	var typed = new Typed('.span', {
+		typeSpeed: 20,
+		backSpeed: 20,
+		startDelay: 250,
+      smartBackspace: true,
+      loop: true
+	})
+	document.querySelector('h1').onclick =function() {typed.toggle()}
+</script>
+</body>	
+</html>
