@@ -155,3 +155,27 @@ kbd:active{
 .cm-string{
 	color:#99c791 !important;
 }
+.cm-m-xml.cm-comment{
+	color: rgb(166,172,185) !important;
+}
+.cm-m-xml .cm-meta{
+	color: #bc92c4 !important;
+}
+.cm-m-javascript.cm-atom{
+	color: rgb(229,92,97) !important;
+}
+.cm-m-javascript.cm-keyword {
+	color: rgba(198,149,198) !important
+}
+.cm-m-javascript.cm-def{
+	color: #fff !important;
+}
+.cm-m-javascript.cm-property{
+	color: rgb(102,153,204) !important;
+}
+.cm-m-javascript.cm-variable{
+	color: rgb(150,153,230) !important
+}
+.cm-m-javascript.cm-comment {
+	color: rgb(166,172,185);
+}
