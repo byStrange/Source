@@ -1,0 +1,406 @@
+*{
+	margin: 0;
+	padding: 0;
+	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+	box-sizing: border-box;
+	color: #fff;
+	/*transition:background 300ms, transform 200ms;*/
+}
+body{
+	min-height:100vh;
+	background: #1c2833;
+	display: grid;
+	place-items: center;
+}
+.main{
+	width: 400px;
+	height: 550px;
+	border-radius: 18px;
+	overflow: hidden;
+	position: relative;
+	background: #566573;
+	border: 5px solid rgba(31,31,31,.7);
+}
+.main .top_bar .options{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transform: translateY(-70px);
+	transition: 500ms;
+}
+.main .top_bar .active_2{
+	transform: translateY(0px);
+}
+.main .top_bar .options button{
+	margin: 0 10px;
+	height: 40px;
+	width: 40px;
+	font-size: 18px;
+}
+.main .top_bar{
+	width: 	100%;
+	padding: 10px 20px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.main .top_bar button{
+	z-index: 20;
+	height: 45px;
+	width: 45px;
+	border-radius: 50%;
+	font-size: 25px;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: rgba(0,0,0,.08);
+	box-shadow: 0.1px 8px 8px 2px rgba(0,0,0,.2);
+}
+.main .top_bar button:hover,.main .top_bar .options button:hover{
+	/*background: rgb(196,31,255);*/
+	/*background: linear-gradient(90deg, rgba(196,31,255,1) 0%, rgba(0,236,255,1) 100%);	*/
+	background: rgba(0,0,0,.5);
+	box-shadow: 1px 8px 8px 2px rgba(0,0,0,.1) inset,
+				0.1px 8px 8px 2px rgba(0,0,0,.2)
+}
+.main .top_bar button:active,.main .top_bar .options button:active{
+	background: rgba(0,0,0,.6);
+}
+.main .playing_part{
+	margin-top: 20px;
+	position: relative;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+.main .playing_part .img{
+	width: 150px;
+	height: 150px;
+	border-radius: 50%;
+	overflow:hidden;
+	box-shadow: 0.1px 8px 4px rgba(0,0,0,0.1);
+}
+.main .playing_part .img img{
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+.main .control_part {
+	margin-top: 30px;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+.main .control_part .song_title {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+.main .control_part .song_title p#songName{
+	font-size: 19px;
+	font-family:bahnschrift;
+	color: #d9d9d9;
+}
+.main .control_part .song_title p#songArtist{
+	font-size: 15px;
+}
+.main .control_part .control_buttons{
+	margin-top: 50px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	width: 100%;
+}
+.main .control_part .control_buttons .main_btns{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-top: 30px;
+}
+.main .control_part .control_buttons .main_btns button{
+	width: 55px;
+	height: 55px;
+	border: none;
+	outline: none;
+	font-size: 30px;
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 0 18px;
+	background: rgba(0,0,0,.08);
+	box-shadow: 0.1px 8px 8px 2px rgba(0,0,0,0.1);
+	border-radius: 50%;
+}
+.main .control_part .control_buttons .main_btns button:hover{
+	background: rgba(0,0,0,.5);
+	box-shadow: 1px 8px 8px 2px rgba(0,0,0,.1) inset,
+				0.1px 8px 8px 2px rgba(0,0,0,.2)
+}
+.main .control_part .control_buttons .main_btns button:active{
+	transform: scale(.95);
+}
+
+.playlist{
+	position: absolute;
+	bottom: 0;
+	z-index: 10;
+	width: 100%;
+	height: 100%;
+	max-height: 0;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	/*background: #fe7d6d*/
+	background: #566573;
+	transition: 500ms;
+	overflow: auto;
+	background: rgba(0,0,0,.95);
+	border-top-right-radius: 15px;
+	border-top-left-radius: 15px;
+}
+.active_op{
+	transform: rotate(-90deg);
+}
+.playlist::-webkit-scrollbar{
+	background: transparent;
+	width: 5px;
+}
+.playlist::-webkit-scrollbar-thumb{
+	width: 2px;
+	background: rgba(255,255,255,.5)
+}
+
+.main .active{
+	max-height: 50vh;
+	padding: 30px 0 50px 0;
+}
+.playlist .p_song{
+	position: relative;
+	width: 80%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	border-radius: 10px;
+	cursor: pointer;
+	padding: 12px 12px 20px 12px;
+	box-shadow: 0.1px 8px 8px 2px rgba(0,0,0,0.11);
+	position: relative;
+	border: 1px solid #fff;
+}
+.playlist .p_song:not(:first-child) {
+	margin-top: 20px;
+}
+.playlist .p_song .p_title{
+	font-size: 20px;
+}
+i {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.playlist .p_song .p_artist{
+	position: absolute;
+	bottom: 6px;
+	left: 15px;
+	font-size: 11px;
+}
+.playlist .p_song button {
+	width: 35px;
+	height: 35px;
+	border-radius: 50%;
+	font-size: 18px;
+	border: none;
+	margin: 0 18px;
+	outline: none;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: rgba(0,0,0,.08);
+	box-shadow: 0.1px 8px 8px 2px rgba(0,0,0,.2);
+	position: absolute;
+	left: 80%
+}
+.playlist .p_song:hover{
+	background: #1c2833;
+}
+.playlist .p_song:hover button{
+	background: #ff5722
+}
+.playlist-liked{
+	position: absolute;
+	bottom: 0;
+	z-index: 10;
+	width: 100%;
+	height: 100%;
+	max-height: 0;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	/*background: #fe7d6d*/
+	background: #566573;
+	transition: 500ms;
+	overflow: auto;
+	background: rgba(0,0,0,.95);
+	border-top-right-radius: 15px;
+	border-top-left-radius: 15px;
+}
+.active_op{
+	transform: rotate(-90deg);
+}
+.playlist-liked::-webkit-scrollbar{
+	background: transparent;
+	width: 5px;
+}
+.playlist-liked::-webkit-scrollbar-thumb{
+	width: 2px;
+	background: rgba(255,255,255,.5)
+}
+.playlist-liked .p_song{
+	position: relative;
+	width: 80%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	border-radius: 10px;
+	cursor: pointer;
+	padding: 12px 12px 20px 12px;
+	box-shadow: 0.1px 8px 8px 2px rgba(0,0,0,0.11);
+	position: relative;
+	border: 1px solid #fff;
+}
+.playlist-liked .p_song:not(:first-child) {
+	margin-top: 20px;
+}
+.playlist-liked .p_song .p_title{
+	font-size: 20px;
+}
+i {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.playlist-liked .p_song .p_artist{
+	position: absolute;
+	bottom: 6px;
+	left: 15px;
+	font-size: 11px;
+}
+.playlist-liked .p_song button {
+	width: 35px;
+	height: 35px;
+	border-radius: 50%;
+	font-size: 18px;
+	border: none;
+	margin: 0 18px;
+	outline: none;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: rgba(0,0,0,.08);
+	box-shadow: 0.1px 8px 8px 2px rgba(0,0,0,.2);
+	position: absolute;
+	left: 80%
+}
+.playlist-liked .p_song:hover{
+	background: #1c2833;
+}
+.playlist-liked .p_song:hover button{
+	background: #ff5722
+}
+.main .active_song{
+	background: #1c2833
+}
+.main .active_song button{
+	background: rgba(0,0,0,.5);
+	box-shadow: 1px 8px 8px 2px rgba(0,0,0,.1) inset,
+				0.1px 8px 8px 2px rgba(0,0,0,.2)
+}
+.range_slider{
+	width: 60%;
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.range_slider p{
+	font-size: 13px;
+}
+#playOrPause{
+	background: rgba(0,0,0,.31)
+}
+input[type="range"]{
+	-webkit-appearance: none;
+	width: 70%;
+	height: 5px;
+	cursor: pointer;
+	position: relative;
+	border-radius: 3px;
+	outline: none;
+	overflow: hidden;
+	border: 1px solid rgba(0,0,0,.1);
+}
+svg{
+	width: 30px;
+	height: 30px;
+}
+input[type="range"]::-webkit-slider-thumb{
+	-webkit-appearance: none;
+	height: 20px;
+	width: 0px;
+	border-radius: 50%;
+	cursor: pointer;
+	z-index: 10;
+	background: #1e4e79;
+	box-shadow: -250px 0px 0 250px #1e4e79;
+}
+.duration{
+	width: 100%;
+	display: flex;
+	justify-content: space-around;
+}
+.option {
+	height: 25%;
+	color: blue;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	user-select: none;
+	transition: .3s;
+	cursor: pointer;
+}
+.option > span {
+	font-family:"malgun gothic", "Helvetica Neue", Helvetica, sans-serif;
+	font-size: 15px;
+	min-width: 70px;
+}
+.option:first-child{
+	border-top-left-radius: 20px;
+	border-top-right-radius: 20px;
+}
+.option:last-child{
+	border-bottom-left-radius: 20px;
+	border-bottom-right-radius: 20px;
+}
+.option:hover{
+	background: rgba(255,255,255,.1);
+}
+#collapse{
+	width: 200px;height: 30px;
+	position: absolute;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	top: 40px;
+	display: none;
+	transition: 1000ms;
+}

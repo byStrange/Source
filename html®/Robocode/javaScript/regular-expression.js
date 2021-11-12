@@ -7,8 +7,8 @@
 // regex = /[0-9]/gi // can check any numbers in a string
 // regex = /a/i // disables case-sensitive
 // regex = /a/g // not throtting next after finding correct one, finds or checks All matches
+// regex = /true|false/ // Checks 2 values true or false
 // regex = /[^aeiou]/gi // can check or find characters that you do not want to match. And they are called "negated character sets"
-// 
 //str = "Strange is want to be best Code!"
 //regex = /st/gi
 //match = str.match(regex)
@@ -49,46 +49,83 @@
 //regex = /[^aeiou]/gi
 //match = str.match(regex)
 //console.log(match)
-var extracted1 = 'array';
-arr = [extracted1, 'can', 'seperate', 'or', 'reverse'];
-console
-.log(arr.join('-'))
-function reverseStr(a){return a.split('').reverse().join('')};console.log(reverseStr('salom'));
-function arrToStr(ar){return ar.join('')};
-function strToArr(str){return str.split('')};
-function getStr(a,type){regex = new RegExp('[a-z]', 'gi');if(type === 'string'){return arrToStr(a.match(regex))}return a.match(regex)}
-windowKey = []
-for(i in window) {
-    windowKey.push(i)
-    if(window.hasOwnProperty(i)) {
-        console.log(true)
-    }
-    else {
-        a = []
-        a.push(i)
-         console.log(a)
-    }
-}
-function checkVariable() {
-    a = prompt('Enter variable name to search')
-    if(!!(window[a])) {
-        console.log(window[a])
-        return true
-    }
-    else {
-        console.log('There is no global variable that named ' + a)
-        return false
-    }
-}
-window.addEventListener('mousedown', function(e) {
-    details = []
-    for(keys in e) {
-        details.push(keys)
-    }
-    console.dir(details)
-})
-window['oncontextmenu'] = function(){
-    return false
-}
-let imeigalaxys3 = 352260054212307;
-typeof typeof 9
+//var extracted1 = 'array';
+//arr = [extracted1, 'can', 'seperate', 'or', 'reverse'];
+//console
+//.log(arr.join('-'))
+//function reverseStr(a){return a.split('').reverse().join('')};console.log(reverseStr('salom'));
+//function arrToStr(ar){return ar.join('')};
+//function strToArr(str){return str.split('')};
+//function getStr(a,type){regex = new RegExp('[a-z]', 'gi');if(type === 'string'){return arrToStr(a.match(regex))}return a.match(regex)}
+//windowKey = []
+//for(i in window) {
+//    windowKey.push(i)
+//    if(window.hasOwnProperty(i)) {
+//        console.log(true)
+//    }
+//    else {
+//        a = []
+//        a.push(i)
+//         console.log(a)
+//    }
+//}
+//function checkVariable() {
+//    a = prompt('Enter variable name to search')
+//    if(!!(window[a])) {
+//        console.log(window[a])
+//        return true
+//    }
+//    else {
+//        console.log('There is no global variable that named ' + a)
+//        return false
+//    }
+//}
+//window.addEventListener('mousedown', function(e) {
+//    details = []
+//    for(keys in e) {
+//        details.push(keys)
+//    }
+//    console.dir(details)
+//})
+//window['oncontextmenu'] = function(){
+//    return false
+//}
+//let imeigalaxys3 = 352260054212307;
+//typeof typeof 9
+
+// continuing regex lessons
+// in regexp . (dot) means 'any' it is anything
+var regex = /./gi; // it returns a > any character <  b
+var str = 'asbsabadsdbaaabbdddavvb';
+var result = str.match(regex);
+console.log(result);
+
+// in regexp ^s  it can match starts with s 
+regex = /^s/gi;
+str = 'salomsalom'
+result = str.match(regex);
+console.log(result)
+
+
+regex = /world$/gi;
+str = 'helloworld';
+result = str.match(regex);
+console.log(result)
+
+
+regex = /p+/gi;
+str = 'it is an apppppppple';
+result = str.match(regex);
+console.log(result)
+
+
+regex = /mee*/;
+str = 'it is meeeee';
+result = str.match(regex);
+console.log(result);
+
+
+regex = /\w/gi
+str = 'hheeeeello';
+result = str.match(regex);
+console.log(result)

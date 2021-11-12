@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../strange.css">
+	<title>Strange js </title>
+</head>
+<body
+style="display: flex;justify-content: center;
+align-items: center;
+min-height: 100vh;">
+				<button class="btn btn-default" data-open="target" role="opener" id="btn">
+						<span>
+							<span class="s">
+							Click me
+						</span>
+						</span>
+				</button>
+				<tag id="target">
+					<div class="main">
+						<div class="col" id="about">About</div>
+						<div class="col">Click</div>
+						<div class="col">Salom</div>
+						<div class="col">Some</div>
+					</div>
+				</tag>
+	<script src="../strange.min.js"></script>
+	<script>
+		const sp = $('[data-open] span span')
+		const sp1 = $('[data-open] span')
+		document.querySelector('[data-open=target]').on('click' , function() {
+			const axes = this.getBoundingClientRect();
+			const thisAxes = $target.getBoundingClientRect()
+			const top = axes.top;
+			const left = axes.left;
+			const width = axes.width;
+			const height = axes.height;
+			$target.css({
+				display: 'block',
+				top: top + height +'px',
+				left: left + width + 'px'
+			})
+			setTimeout(()=>{
+				$target.css({
+					transform :'scale(1,1)'
+				})
+			}, 1)
+		})
+		window.on('click', function (e) {
+				console.log(e.target)
+			if(!(e.target == $about || e.target == $btn || e.target == sp || e.target == sp1)) {
+				$target.css({
+					transform : 'scale(0)'
+				})	
+				setTimeout(()=>{
+							$target.css({
+								display: 'none'
+							})
+						},150)
+					}
+				})
+	</script>
+</body>
+</html>

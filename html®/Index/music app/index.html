@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- <script src="https://kit.fontawesome.com/ef78a6e9c6.js" crossorigin="anonymous"></script> -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+	<link rel="stylesheet" href="style.css">
+	<title>Document</title>
+</head>
+<body>
+	<div class="main">
+		<div class="top_bar">
+			<button onclick="nav.classList.toggle('active_2')"><i class="fas fa-chevron-right"></i></button>
+			<div class="options">
+				<button><i class="fa-solid fa-music"></i></button>
+				<button id="mute"><i class="fa-solid fa-volume-high" ></i></button>
+				<div id="collapse">
+					<input type="range" id="volume_changer" min="0" max="100"  step="5" value="70">
+				</div>
+				<button><i class="fas fa-pen-to-square" onclick="getPAtjh();"></i></button>
+			</div>
+			<button onclick="open_p()" id="o"><i class="fas fa-bars"></i></button>
+		</div>
+		<div class="playing_part">
+			<div class="img">
+				<img src="img/render-provoloka-spicy-3d.jpg" alt="">	
+			</div>
+		</div>
+		<div class="control_part">
+			<div class="song_title">
+				<p id="songName">Song name</p>
+				<p id="songArtist">Song artist</p>
+			</div>
+			<div class="control_buttons">
+				<div class="range_slider duration">
+					<p id="CurrentTime">00:00</p>
+					<input type="range"  value="0" id="duration_slider" min="0" max="100" >
+					<p id="song_detail">3:00</p>
+				</div>
+				<div class="main_btns">
+					<button id="previous"><i class="fas fa-backward-step"></i></button>
+					<button id="playOrPause"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.0.0-beta2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path fill="#fff" style="stroke: 1px red" d="M176 480C148.6 480 128 457.6 128 432v-352c0-25.38 20.4-47.98 48.01-47.98c8.686 0 17.35 2.352 25.02 7.031l288 176C503.3 223.8 512 239.3 512 256s-8.703 32.23-22.97 40.95l-288 176C193.4 477.6 184.7 480 176 480z"/></svg></button>
+					<button id="next"><i class="fas fa-forward-step"></i></button>
+				</div>
+			</div>
+		</div>
+		<div class="playlist"></div>
+		<div class="playlist-liked"></div>
+	</div>
+	<script src="C:\Users\Stark\Desktop\Strange\web html\Index\music app\lib\strange.js"></script>
+<script src=".C:\Users\Stark\Desktop\Strange\web html\Index\music app\lib\anime.js"></script>
+	<script src="C:\Users\Stark\Desktop\Strange\web html\Index\music app\script.js"></script>
+	<input type="file" name="" id="fileUploadInput	">
+</body>
+</html>
+<script>
+	anime({
+		targets: ['#CurrentTime', '#song_detail'],
+		scale: {
+			value: [0,1],
+			duration: 3000
+		},
+		delay: anime.stagger(1000),
+	})
+	// anime({
+	// 	targets: 'path',
+	// 	translateY: 15,
+	// 	d: {
+	// 		value: ['M272 63.1l-32 0c-26.51 0-48 21.49-48 47.1v288c0 26.51 21.49 48 48 48L272 448c26.51 0 48-21.49 48-48v-288C320 85.49 298.5 63.1 272 63.1zM80 63.1l-32 0c-26.51 0-48 21.49-48 48v288C0 426.5 21.49 448 48 448l32 0c26.51 0 48-21.49 48-48v-288C128 85.49 106.5 63.1 80 63.1z'],
+	// 	},
+	// 	translateX: 95,
+	// 	fill: '#990000'
+	// })
+</script>
+<!-- <div class="hp_slide">
+     <div class="hp_range"></div>
+</div>
+<style>
+	.hp_slide{
+    width:100%;
+    background:white;
+    height:25px;
+}
+.hp_range{
+    width:0;
+    background:black;
+    height:25px;
+}
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js" integrity="sha512-n/4gHW3atM3QqRcbCn6ewmpxcLAHGaDjpEBu4xZd47N0W2oQ+6q7oc3PXstrJYXcbNU1OHdQ1T7pAP+gi5Yu8g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+	var player = track;    
+player.addEventListener("timeupdate", function() {
+    var currentTime = player.currentTime;
+    var duration = player.duration;
+    $('.hp_range').stop(true,true).animate({'width':(currentTime +.25)/duration*100+'%'},250,'linear');
+    console.log(duration)
+});
+</script> -->
+<strange-bs />

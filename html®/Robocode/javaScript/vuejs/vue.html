@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+    <style>
+        *{
+            user-select: none;
+        }
+        body{
+            background: #151515;
+            color: wheat;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        ::-webkit-scrollbar{
+            background: rgba(15,15,15,1);
+        }
+        ::-webkit-scrollbar-thumb{
+            background: rgba(255,255,255,.1);
+        }
+        button {
+            padding: 10px 12px;
+            border: none;
+            background: rgba(255,255,255,.1)
+        }
+        .text{
+            font-family: Arial;
+            font-size: 4em;
+            min-width: 600px;
+        }
+        :focus{
+            outline: 2px solid rgba(255,255,55,1);
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <Button v-on:click="reverse">+</Button>
+        <p class="text" v-on:click="reverse" @mouseenter="reverse">
+            {{ message}} <br>
+            {{counter}} <br>
+            {{len}}
+        </p>
+        <Button v-on:focus="minus">-</Button>
+    </div>
+    <div id="app1">
+        
+    </div>
+    <script src="vue/vue/vue.js"></script>
+    <script src="../strange.js"></script>
+    <script>
+        var counter = {
+            data() {
+                return {
+                    counter: 0,
+                    message: 'A!@#$%^&*()_+|{}[:;]',
+                    len : 80
+                }
+            },
+            methods: {
+                plus() {
+                    this.counter++
+                },
+                minus() {
+                    this.counter--
+                },
+                reverse() {
+                    this.message = this.message.mix(10)
+                    this.counter++
+                    this.len = this.message.length
+                }
+            }//,
+//            mounted() {
+//                setInterval(()=>{
+//                    this.counter++
+//                    if(this.counter >= 10){this.counter = 0}
+//                }, 1000)
+//            }
+        }
+        var app = Vue.createApp(counter)
+        app.mount('#app')
+    </script>    
+</body>
+</html>

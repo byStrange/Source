@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+		div#game{
+			width: 500px;
+			height: 200px;
+			border:1px solid red;
+			overflow: hidden;
+		}
+		div.character{
+			width: 20px;
+			height: 50px;
+			position: relative;
+			top: 150px;
+			background: red;
+		}
+		div.block{
+			width: 20px;
+			height: 20px;
+			position: relative;
+			top: 130px;
+ 			left: 480px;
+ 			background: red;
+ 			animation: anime 1000ms linear infinite;
+		}
+		.jump{
+			animation: jump 300ms linear ;
+		}
+		@keyframes anime {
+			from{
+				left:480px;
+			}
+			to{
+				left: -40px;
+			}
+		}
+		@keyframes jump {
+				0%{
+					top: 150px;
+				}
+				50%{
+					top: 80px ;
+				}
+				100%{
+					top: 150px;
+				}
+		}
+	</style>
+</head>
+<body>
+	<div id="game">
+		<div class="character"></div>
+		<div class="block"></div>
+	</div>
+</body>
+<script type="text/javascript">
+	let dino = document.querySelector('.character');
+	let block = document.querySelector('.block');
+	function jump() {
+		if(dino.classList != 'jump') {
+			dino.classList.add('jump')
+		}
+		setTimeout(()=>{
+			dino.classList.remove('jump')
+		},300)
+	}
+ 	setInterval(()=>{
+		dinoTop = parseInt(getComputedStyle(dino).getPropertyValue('top'))
+		blockLeft  = parseInt(getComputedStyle(block).getPropertyValue('left'))
+		if(blockLeft< 20&& blockLeft > 0&& dinoTop>=130) {
+			a = confirm('siz yutqazdingiz, Qayta Oynaysizmi')
+			if(a){location.reload()}
+			else close()
+		}
+	},10)
+	window.onkeyup=   function(e) {
+		if(e.keyCode == 32) {
+			jump()
+		}
+	}
+</script>
+</html>

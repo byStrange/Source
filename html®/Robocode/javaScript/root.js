@@ -17,18 +17,18 @@
 // 		return console.error(new Error())
 // 	}
 // }
-// function getOnlyNumbers(str,t) {
-// 	if (str.constructor.toString().indexOf('String') > -1) {
-// 		let pat = /[1,2,3,4,5,6,7,8,9,0]/gi
-// 		let matches = str.match(pat)
-// 		kn=''
-// 		if(t){ for(i of matches) {kn+=i};return Number(kn)}
-// 		else {return matches}
-// 	}
-// 	else {
-// 		return console.error(new Error())
-// 	}
-// }
+function getOnlyNumbers(str,t) {
+	if (str.constructor.toString().indexOf('String') > -1) {
+		let pat = /[1,2,3,4,5,6,7,8,9,0]/gi
+		let matches = str.match(pat)
+		kn=''
+		if(t){ for(i of matches) {kn+=i};return Number(kn)}
+		else {return matches}
+	}
+	else {
+		return console.error(new Error())
+	}
+}
 // function getNumbersAndLetters(str) {
 // 	if(str) {
 // 		if (str.constructor.toString().indexOf('String') > -1) {
@@ -56,3 +56,28 @@
 // 		return new Error()
 // 	}
 // }
+//var get = {
+//    duplic: function(arr) {
+//        if(arr.constructor.toString().indexOf("Array") > -1) {
+//            var uniq = arr
+//                .map((name) => {
+//                return {
+//                count: 1,
+//                name: name
+//                }
+//            })
+//            .reduce((a, b) => {
+//                a[b.name] = (a[b.name] || 0) + b.count
+//                return a
+//                return a
+//            }, {})
+//
+//            var duplicates = Object.keys(uniq).filter((a) => uniq[a] > 1)
+//
+//            return duplicates
+//        }
+//    },
+//    css: function (el,) {
+//        
+//    }
+//}

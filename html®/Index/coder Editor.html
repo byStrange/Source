@@ -1,36 +1,40 @@
-<!--
-	https://codemirror.net/lib/codemirror.css
-	https://codemirror.net/lib/codemirror.js
-	https://codemirror.net/mode/xml/xml.js
-	https://codemirror.net/mode/css/css.js
-	https://codemirror.net/mode/javascript/javascript.js
-	style.css
-	code.js
--->
 <!DOCTYPE html>
 <html>
 <head>
 	<title>Document</title>
 	<link rel="stylesheet" type="text/css" href="css/editor html.css">
 	<link rel="stylesheet" type="text/css" href="css/ss.css">
-	<link rel="stylesheet" href="https://codemirror.net/lib/codemirror.css">
-
-	
 </head>
 <body>			
+	<div class="header"></div>
 		<div class="input-group">
 			<div class="text-control">
 			<div class="text-panel">
-				<br>
-				<div class="play btn btn-outline-success"  >play</div>
-				<br> <br>
-				<div class="open btn btn-outline-success" onclick="button()">Open</div>
-				<br> <br>
-				<div class="reset btn btn-outline-success" onclick="MirrorFrame.prototype.search()">clear</div>
-				<br> <br>
-				<div class="btn btn-outline-success" onclick="copy()">copy</div>
-				<br> <br>
-				<div class="save btn btn-outline-success" style="opacity: 0;" onclick="save()">save</div>
+				<!-- <div class="row" style="flex-direction: column;width: 100% !important; border: 1px solid #000;">
+					<div class="col-3">
+					</div>
+					<div class="col-3">
+					</div>
+					<div class="col-3">
+					</div>
+					<div class="col-3">
+					</div>
+				</div> -->
+								
+						<div class="play btn btn-outline-success"  >play</div>
+
+						<div class="reset btn btn-outline-success">clear</div>
+
+						<div class="reset btn btn-outline-success">open</div>
+
+						<div class="btn btn-outline-success" onclick="copy()">copy</div>
+
+								
+
+								
+
+								
+				
 				<!-- <div class="live btn btn-outline-danger ">
 				<label for="check" class="form-label ">Live</label>   <input type="checkbox" class="custom-checkbox-2" id="check"></div><br> <br> -->
 				<!-- <select id="select" class="btn btn-outline-success" >
@@ -41,12 +45,10 @@
 				<option>Mariana</option>
 			</select> -->
 			</div> 
-
 			
 		</div>
-				<div class="wrapper" style="width:4px;height: 100%;background: gray;"></div>
-
-			<textarea type="text" name="" class="form-control" id="code" placeholder="Welcome to code"></textarea>
+		<div class="holder" style="width: 3px;height: 100%;background: red;cursor: e-resize;z-index: 15515;" id="holder"></div>
+			<textarea type="text" name="" class="form-control" placeholder="Welcome to code" style="border: none"></textarea>
 		</div>				
 		<div class=""></div>
 		<audio src="" autoplay=""></audio>
@@ -65,7 +67,7 @@
 					$div. 		<span class="text-muted">tab =></span> <span class="k-2"></span><br>
 					$div#		<span class="text-muted">tab =></span> <span class="k-3"></span>
 				</kbd>
-				<h5>Please do'nt use <span class="k-4 text-danger"></span> tag use only between&nbsp&nbsp<span class="k-5 text-danger"></span> tags </h5>
+				<h5>Please do'nt use <span class="k-4 text-danger"></span> <span class="text-muted">(external css)</span>  tag use only between&nbsp&nbsp<span class="k-5 text-danger"></span> tags </h5>
 				<label for="check" class="text-primary">I agree Terms of condition
 			          &nbsp&nbsp	<input type="checkbox" name="" id="check">  
 				</label>
@@ -74,12 +76,6 @@
 			</div>
 		</div>
 </body>
-	<script src="https://codemirror.net/lib/codemirror.js"></script>
-		<script src="https://codemirror.net/mode/xml/xml.js"></script>
-	<script src="https://codemirror.net/mode/css/css.js"></script>
-	<script src="https://codemirror.net/mode/javascript/javascript.js"></script>
-		<script src="https://codemirror.net/mode/htmlmixed/htmlmixed.js"></script>
-
 <script type="text/javascript">
 	let input = document.querySelector(`[type=text]`);
 	let play = document.querySelector(`.play`);
@@ -89,51 +85,118 @@
    function __trueCleaner() {
    	input.value = ``
 	}
-	input.onkeyup = function() {
-		play.onclick = live;
-		if(!this.value == '') {
-			document.querySelector('.save').style = 'opacity:1'
+	const api = 'https://quotes.stormconsultancy.co.uk/random.json'
+// 	function __falseCleaner() {
+// 		input.value = `<!DOCTYPE html>
+// <html>
+// <head>
+// 	<title></title>
+// </head>
+// <body>
+
+// </body>
+// </html>`
+// 	}
+	// document.querySelector(`[type=checkbox]`).onclick = function() {
+	// 		document.querySelector(`.live`).classList.toggle(`btn-outline-danger`);
+	// 		document.querySelector(`.live`).classList.toggle(`btn-outline-success`)
+	// }
+		// document.querySelector(`audio`).src = `music/clickerx.wav`
+		// if (document.querySelector(`[type=checkbox]`).checked ) {
+		// 	input.oninput = live
+			
+		// }
+		// else if(document.querySelector(`[type=checkbox]`).checked === false){
+		// 	input.oninput = null
+		// 	play.onclick = live
+		// }
+		// live()
+/*	// let counter = 0
+	// 	play.onclick = live
+	// function live() {
+	// 	if(counter !=1) {
+	// 		op()
+	// 	}
+	// 	if(win.closed) {
+	// 		counter = 0;
+	// 		op()
+	// 	}
+	// 	else {
+	// 		win.focus();
+	// 		win.document.body.innerHTML  = input.value;
+	// 	}
+	// }
+	// function op() {
+	// 		win = window.open('', '', 'width: 450px; height: 500px');
+	// 		win.name = "Programm"
+	// 		win.document.body.innerHTML  = input.value;
+	// 		counter +=1
+	// }
+	*/
+document.querySelector('#holder').onmousedown = function() {
+	window.onmousemove = function(e) {
+		if(!(e.clientX >= 280)) {
+			document.querySelector('.text-control').style.width = e.clientX+ 'px';
+			if(e.clientX <= 100) {
+				document.querySelector('.col-3').style.width = '100% !important' 
+				document.querySelector('.col-3').style.border = '1px solid red' 
+				document.querySelector('.col-3').style.width = '100% !important' 
+				document.querySelector('.col-3').style.margin = '0 !important'
+				document.querySelector('.row').style.padding = '0'
+			}
 		}
 		else {
-			document.querySelector('.save').style = 'opacity:0s'
+			document.querySelector('.text-control').style.width = 280+'px'
 		}
 	}
-	function live() {
-		output.innerHTML = input.value
+}
+document.querySelector('#holder').onmouseup = function() {
+	window.onmousemove = null
+}
+window.onmouseup = function() {
+	window.onmousemove = null
+}
+	play.innerText = 'save'
+	isSave = true;
+	play.onclick = async function() {
+		if(isSave) {
+			[fileHandle] = await  window.showOpenFilePicker();
+			let fileData = await fileHandle.getFile();
+			let text = await  fileData.text();
+			input.value = text
+		}
 	}
-	let iswindOpened = false 
-	let a
-	play.onclick = function() {
-		if(!iswindOpened) {
-			iswindOpened = true
-			let  wind = window.open('','',`width=${window.innerWidth},height=${window.innerHeight},navbar=false`);
-			a = wind
-			wind.document.documentElement.innerHTML = ''
-			wind.document.documentElement.innerHTML = editor.getValue();
-		}
-		else {
-			a.focus()
-		}
+	// function CHECK() {
+	// 	if (input.value == ``) {
+	// 		clear.innerText = `Html 5`
+	// 	}
+	// 	else if (input.value !== ``) {
+	// 		clear.innerText = `clear`
+	// 	}
 
+	// }
+	// setInterval(CHECK, 100)
+	// document.querySelector(`select`).onchange = function () {
+	// 	if (this.value == `Monokai`) {
+	// 		input.classList.remove(`Breakers`,`Dark`,`Light`)
+	// 		input.classList.add(`monokai`)
+	// 	}
+	// 	else if(this.value == `Dark`) {
+	// 		input.classList.remove(`Breakers`,`monokai`,`Light`)
 
-	}
-	let fileHandle;
-	async function button() {
-		[fileHandle] = await window.showOpenFilePicker();
-		let fileData = await fileHandle.getFile();
-		let text = await fileData.text()
-		input.value = text
-	}
-	async function save() {
-		let stream = await fileHandle.createWritable();
-		await stream.write(input.value)
-		await stream.close()
-	}
-	async function saveAs() {
-		fileHandle = await window.showSaveFilePicker();
-		save()
-	}
-	
+	// 		input.classList.add(`Dark`)
+	// 	}
+	// 	else if (this.value == `Light`) {
+	// 		input.classList.remove(`Breakers`,`Dark`,`monokai`)
+
+	// 		input.classList.add(`Light`)
+	// 	}
+	// 	else if (this.value == `Mariana`) {
+	// 		input.classList.remove(`monokai`,`Dark`,`Light`)
+
+	// 		input.classList.add(`Breakers`)
+	// 	}
+	// }
 	document.querySelector('.first-kbd').innerText = `<div class=className>...</div>
 	`;
 	document.querySelector('.k-2').innerText = `<div class="">...</div>`;
@@ -153,24 +216,8 @@
 			.style
 			.top = `30px`		
 		}
-		CodeMirror.replace = function(element) {
-    if (typeof element == "string")
-      element = document.getElementById(element);
-    return function(newElement) {
-      element.parentNode.replaceChild(newElement, element);
-    };
-  };
 		setTimeout(that, 2000);
-		var editor = CodeMirror.fromTextArea(document.querySelector('textarea.form-control'), {
-			lineNumbers: true,
-			tabSize: 4,
-			mode: 'xml'
-		})
-		window.onclick = function(e) {
-			if(e.clientX > document.querySelector('.text-control').getBoundingClientRect().width) {
-				editor.focus()
-			}
-		}
+		
 </script>
 <script type="text/javascript" src="js/snippets.js"></script>
 <script type="text/javascript" src="js/jquery.js"></script>
@@ -186,12 +233,13 @@
 			$('.div-modal-box').animate({
 				top: '-100vh',
 				left: '100vh',
-				display : 'none'
+				opacity : 0
 			},1700)
 			$('.div-modal-box').css({
 				transform : 'scale(.8,.8)'
 			})
 		}
+		// $('.div-modal-box').fadeOut(3700)
 	})
 </script>
 </html>	

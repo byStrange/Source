@@ -5,7 +5,15 @@
 	<link rel="stylesheet" type="text/css" href="css/rangeInt.css">
 </head>
 <body>
-	<input type="text" name="" style="opacity:0;" class="intas">
+	<div class="generator">
+		<div class="select">
+			<input type="text" id="hex" class="" placeholder="Enter Hex  color ">
+			<span id="hashTag">#</span>
+				<button class="option" onclick="hex()">HEX</button>
+		</div>
+		
+	</div>
+	<input type="text" name="" tabindex="-15" class="intas">
 	<input type="range" name="" min="0" max="255">
 	<input type="range" name="" min="0" max="255">
 	<input type="range" name="" min="0" max="255">
@@ -17,3 +25,4 @@
 	<script type="text/javascript" src="js/rangeInt.js"></script>
 </body>	
 </html>
+		

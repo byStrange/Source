@@ -78,10 +78,10 @@ document.querySelector('right').onmousedown = ripple
         loop: false,
         scale: {
             value: [1,100],
-            duration: 5000
+            duration: 3500
         },
         opacity: {
-            value: [1,0],
+            value: [.3,0],
             duration: 1000
         },
         duration: 3500
