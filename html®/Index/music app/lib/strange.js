@@ -32,39 +32,39 @@ if (window === undefined) {
         }
     }
 
-    function template(op, safe=false) {
-        try {
-            if (op.constructor.toString().indexOf('Object') > -1) {
-                if (safe) {
-                    customElements.define(op.name, class extends HTMLElement {
-                        connectedCallback() {
-                            const shadow = op.attachShadow({
-                                mode: 'closed'
-                            });
-                            shadow.innerHTML = op.template;
-                        }
-                    });
-                } else {
-                    customElements.define(op.name, class extends HTMLElement {
-                        connectedCallback() {
-                            shadow.innerHTML = op.template;
-                        }
-                    });
-                }
-            }
-            else {
-                console.warn('First Argument must be Object')
-            }
-        }
+    // function template(op, safe=false) {
+    //     try {
+    //         if (op.constructor.toString().indexOf('Object') > -1) {
+    //             if (safe) {
+    //                 customElements.define(op.name, class extends HTMLElement {
+    //                     connectedCallback() {
+    //                         const shadow = op.attachShadow({
+    //                             mode: 'closed'
+    //                         });
+    //                         shadow.innerHTML = op.template;
+    //                     }
+    //                 });
+    //             } else {
+    //                 customElements.define(op.name, class extends HTMLElement {
+    //                     connectedCallback() {
+    //                         shadow.innerHTML = op.template;
+    //                     }
+    //                 });
+    //             }
+    //         }
+    //         else {
+    //             console.warn('First Argument must be Object')
+    //         }
+    //     }
 
-        catch(me) {
-            console.warn('There is an error occured')
-        }
-    }
-    template({
-        name: 'strange-bs',
-        template: '<h1>Hello from Strange</h1>'
-    },1)
+    //     catch(me) {
+    //         console.warn('There is an error occured')
+    //     }
+    // }
+    // template({
+    //     name: 'strange-bs',
+    //     template: '<h1>Hello from Strange</h1>'
+    // },1)
 
     function convertPxToUnit(el, value, unit) {
         var valueUnit = getUnit(value);

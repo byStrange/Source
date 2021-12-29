@@ -25,47 +25,67 @@ var favouritesArr = [];
 var liked = [];
 let track = document.createElement('audio')
 let index_no = 0
-let allMusics = [{
-    name: 'Balanciaga',
-    path: 'music/m1.mp3',
-    singer: 'Americano trak'
-}, {
-    name: 'Let me done slowly',
-    path: 'music/m2.mp3',
-    singer: 'Alec Benjamin'
-}, {
-    name: 'Mask Off remix',
-    path: 'music/m3.mp3',
-    singer: 'Americano trak'
-}, {
-    name: 'NBA',
-    path: 'music/m4.mp3',
-    singer: 'Astemus'
-}, {
-    name: 'Ocean',
-    path: 'music/m5.mp3',
-    singer: 'Astemus'
-}, {
-    name: 'Relax',
-    path: 'music/m6.mp3',
-    singer: 'Americano trak'
-}, {
-    name: 'Пацаны Мечтают',
-    path: 'music/m7.mp3',
-    singer: 'Astemus'
-}, {
-    name: 'Самурай',
-    path: 'music/m8.mp3',
-    singer: 'Astemus'
-}, {
-    name: 'Финальный раунд',
-    path: 'music/m9.mp3',
-    singer: 'Astemus'
-}, {
-    name: 'Empty Note remix',
-    path: 'music/m10.mp3',
-    singer: 'Americano trak'
-}]
+
+let list = []
+
+function evaluvate(musicList) {
+    musicList = musicList.toString()
+    let mus = musicList.split(';;__;;')
+    for (e of mus) {
+        var music = {}
+        let name = e.split('.')
+        name = name[name.length - 1]
+        music.name = e.replace('.' + name , '')
+        music.path = 'music/' + e
+        music.singer = e.replace('.' + name , '')
+        list.push(music)
+    }
+    list.pop()
+}
+
+evaluvate(musics)
+let allMusics = list
+// let allMusics = [{
+//     name: 'Balanciaga',
+//     path: 'music/m1.mp3',
+//     singer: 'Americano trak'
+// }, {
+//     name: 'Let me done slowly',
+//     path: 'music/m2.mp3',
+//     singer: 'Alec Benjamin'
+// }, {
+//     name: 'Mask Off remix',
+//     path: 'music/m3.mp3',
+//     singer: 'Americano trak'
+// }, {
+//     name: 'NBA',
+//     path: 'music/m4.mp3',
+//     singer: 'Astemus'
+// }, {
+//     name: 'Ocean',
+//     path: 'music/m5.mp3',
+//     singer: 'Astemus'
+// }, {
+//     name: 'Relax',
+//     path: 'music/m6.mp3',
+//     singer: 'Americano trak'
+// }, {
+//     name: 'Пацаны Мечтают',
+//     path: 'music/m7.mp3',
+//     singer: 'Astemus'
+// }, {
+//     name: 'Самурай',
+//     path: 'music/m8.mp3',
+//     singer: 'Astemus'
+// }, {
+//     name: 'Финальный раунд',
+//     path: 'music/m9.mp3',
+//     singer: 'Astemus'
+// }, {
+//     name: 'Empty Note remix',
+//     path: 'music/m10.mp3',
+//     singer: 'Americano trak'
+// }]
 // document.querySelector('body').addEventListener('click', async () => {
 //   const dirHandle = await window.showDirectoryPicker();
 //   for await (const entry of dirHandle.values()) {
@@ -98,30 +118,31 @@ let allMusics = [{
 //     }
 //   }
 // }
-document.querySelector('#fileUploadInput').onchange  = getPAth
+$('#fileUploadInput').onchange = getPAth
 a = ''
+
 function getPAth() {
     var input = document.querySelector('#fileUploadInput');
-var fReader = new FileReader();
-fReader.readAsDataURL(input.files[0]);
-fReader.onload = function(event){
-    // var img = document.getElementById("yourImgTag");
-    // img.src = event.target.result;
-    console.log(event.target.result)
-    a = event.target.result;
-    track.src = a;
-    playinSong =  false
-    console.log(a)
+    var fReader = new FileReader();
+    fReader.readAsDataURL(input.files[0]);
+    fReader.onload = function(event) {
+        // var img = document.getElementById("yourImgTag");
+        // img.src = event.target.result;
+        console.log(event.target.result)
+        a = event.target.result;
+        track.src = a;
+        playinSong = false
+        console.log(a)
     }
 }
-HTMLElement.prototype.open = function (n = 1) {
+HTMLElement.prototype.open = function(n = 1) {
     anime({
         targets: this,
         opacity: 1,
         scale: n
     })
 }
-HTMLElement.prototype.close = function (n = 1) {
+HTMLElement.prototype.close = function(n = 1) {
     anime({
         targets: this,
         opacity: [1, 0],
@@ -144,8 +165,8 @@ function ddd() {
     $('.playlist').innerHTML = ''
     for (let i = 0; i < l; i++) {
         $('.playlist').innerHTML += `<div class="p_song" onclick="loadTrack(${i});track.play();playinSong=true;index_no=${i};open_p();settingsDiv.close()" oncontextmenu="return false"  onmouseup="settings(${i})">
-                <p class="p_title">${allMusics[i].name}</p>
-                <p class="p_artist">${allMusics[i].singer}</p>
+                <div class="p_title">${allMusics[i].name}</div>
+                <div class="p_artist">${allMusics[i].singer}</div>
                 <button><i class="fas fa-play" ></i></button>
             </div>
             `
@@ -170,10 +191,10 @@ function act(ind) {
     }
     el[ind].add('active_song')
 }
-window.oncontextmenu = function () {
+window.oncontextmenu = function() {
     return false
 }
-window.onclick = function (e) {
+window.onclick = function(e) {
     if (playinSong) {
         anime({
             targets: 'path',
@@ -185,17 +206,17 @@ window.onclick = function (e) {
             easing: 'easeOutExpo',
 
         })
-//         var path = anime.path('path');
+        //         var path = anime.path('path');
 
-// anime({
-//   targets: '.el',
-//   translateX: path('x'),
-//   translateY: path('y'),
-//   rotate: path('angle'),
-//   easing: 'linear',
-//   duration: 2000,
-//   loop: true
-// });
+        // anime({
+        //   targets: '.el',
+        //   translateX: path('x'),
+        //   translateY: path('y'),
+        //   rotate: path('angle'),
+        //   easing: 'linear',
+        //   duration: 2000,
+        //   loop: true
+        // });
     } else {
         anime({
             targets: 'path',
@@ -263,7 +284,7 @@ function settings(ind) {
     }
     document.body.appendChild(settingsDiv)
     settingsDiv.appendChild(settingsDivInnerHTML)
-    $('[data-work=delete]').on('click', function (e) {
+    $('[data-work=delete]').on('click', function(e) {
         ir = settingsDiv.getAttribute('clicker')
         a = confirm('Are You sure want to delete ' + allMusics[ir].name + 'from only this music player')
         if (a) {
@@ -275,7 +296,7 @@ function settings(ind) {
             settingsDiv.close()
         }
     })
-    $(`[data-work=edit]`).on('click', function () {
+    $(`[data-work=edit]`).on('click', function() {
         ir = settingsDiv.getAttribute('clicker')
         let name = prompt('Enter a new name', allMusics[ir].name)
         if (name == null) name = allMusics[ir].name
@@ -287,7 +308,7 @@ function settings(ind) {
         document.querySelectorAll('.p_title')[ir].innerText = name
         settingsDiv.close()
     })
-    $('[data-work=like]').on('click', function () {
+    $('[data-work=like]').on('click', function() {
         ir = settingsDiv.getAttribute('clicker')
         el = document.querySelectorAll('.p_song')
         heart = document.createElement('div')
@@ -343,7 +364,7 @@ function addLiked() {
         $('.playlist-liked').appendChild(liked[i])
     }
 }
-window.on('mouseup', function (e) {
+window.on('mouseup', function(e) {
     if (e.which == 1) {
         rect = settingsDiv.getBoundingClientRect();
         cursorY = e.clientY
@@ -355,7 +376,7 @@ window.on('mouseup', function (e) {
         }
     }
 })
-track.onplaying = function () {
+track.onplaying = function() {
     playinSong = true;
     anime({
         targets: 'path',
@@ -367,7 +388,7 @@ track.onplaying = function () {
         easing: 'easeOutExpo',
     })
 }
-window.on(['keyup', 'keydown', 'keypress'], function (e) {
+window.on(['keyup', 'keydown', 'keypress'], function(e) {
     if (e.key == 'm' || e.key == 'M') {
         isMute()
     }
@@ -387,10 +408,10 @@ window.on('mousemove', function e(e) {
         })
     }
 })
-$('#volume_changer').on('input', function () {
+$('#volume_changer').on('input', function() {
     track.volume = this.value / 100
 })
-track.onvolumechange = function () {
+track.onvolumechange = function() {
     if (muted || track.volume == 0) {
         mutebtn.innerHTML = `<i class="fa-solid fa-volume-xmark"></i>`
     } else {
@@ -398,7 +419,7 @@ track.onvolumechange = function () {
     }
     localStorage.lastVolume = track.volume * 100
 }
-window.on('load', function () {
+window.on('load', function() {
     track.volume = +localStorage.lastVolume / 100;
     $('#volume_changer').value = +localStorage.lastVolume
 })
@@ -522,10 +543,10 @@ function changedr() {
         next()
     }
 }
-duration.onchange = function () {
+duration.onchange = function() {
     track.currentTime = duration.value
 }
-    // track.ontimeupdate = function() {
-    // 	t = track.currentTime;
-    // 	duration.value =t
-    // }
+// track.ontimeupdate = function() {
+//  t = track.currentTime;
+//  duration.value =t
+// }
